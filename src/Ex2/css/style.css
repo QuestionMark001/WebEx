@@ -1,0 +1,69 @@
+/*链接点击颜色*/
+a:link {color: rgb(23, 111, 212);}
+a:hover {color: pink;}
+a:active {color: #ccc;}
+
+/*版权及链接样式*/
+.email1 {
+    font-family: Bahnschrift;
+    font-size: 18px;
+    font-style: italic;
+}
+
+/*标题及正文样式*/
+.h1 {
+    text-align: center;
+    font-family: 宋体;
+    font-size: 35px;
+}
+.h2 {
+    text-align: center;
+    font-family: 华文中宋;
+    font-weight: 500;
+    font-size: 30px;
+}
+.h3 {
+    text-align: center;
+    font-family: 华文中宋;
+    font-weight: 500;
+    font-size: 20px;
+}
+.p1 {
+    text-align: center;
+    font-family: 华文中宋;
+    font-weight: 500;
+    font-size: 19px;
+}
+.p2 {
+    font-family: 宋体;
+    font-weight: bolder;
+    font-size: 18px;
+}
+.p3 {
+    font-family: 宋体;
+    font-weight: 500;
+    font-size: 18px;
+    text-indent: 2em;
+}
+.p4 {
+    font-family: 宋体;
+    font-size: 18px;
+}
+
+/*hr*/
+.hr1 {
+    border: 0;
+    background-color: #8bcbec;
+    height: 13px;
+}
+.hr2 {
+    border: 0;
+    background-color: #8bcbec;
+    height: 10px;
+}
+.hr3 {
+    border: 0;
+    background-color: #028002;
+    height: 8px; width: 75%;
+    margin: 0%;
+}
