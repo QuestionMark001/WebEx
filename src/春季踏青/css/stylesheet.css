@@ -1,0 +1,67 @@
+/* @font-face */
+@font-face {
+    font-family: FZJZJW;
+    src: url(./../fonts/FZJZJW.TTF); /* 方正剪纸简体,请勿擅自商用！！！ */
+}
+
+/* 标题 */
+.notice1 {
+    font-family: FZJZJW;
+    color: #018295;
+    text-align: center;
+    text-shadow: 0px 15px 45px gray;
+    margin: 1em;
+}
+.notice2 {
+    font-family: "楷体","黑体","微软雅黑";
+    color: #018295;
+    text-align: center;
+}
+
+/* 正文及图片 */
+.start {
+    font-family: "微软雅黑 Light","黑体","微软雅黑";
+    font-weight: bolder;
+    font-size: 17px;
+    color: #007e9e;
+}
+.p1 {
+    text-indent: 2em;
+    font-weight: 400;
+    font-size: 15px;
+    color: #007e9e;
+    line-height: 25px;
+}
+.img {
+    width: auto;
+    height: auto;
+    max-width: 45%;
+    max-height: 50%;
+    vertical-align: middle;
+}
+.maintext {
+    display: inline-block;
+    margin-left: 2em;
+    vertical-align: middle;
+}
+.p2 {
+    font-size: 15px;
+    font-weight: 400;
+    color: #007e9e;
+    line-height: 30px;
+}
+span {
+    font-family: "微软雅黑 Light","黑体","微软雅黑";
+    font-weight: bolder;
+    font-size: 17px;
+    color: #007e9e;
+}
+
+/* 署名 */
+.sign {
+    text-align: right;
+    font-family: "黑体","微软雅黑";
+    font-weight: 600;
+    font-size: 17px;
+    color: #007e9e;
+}
