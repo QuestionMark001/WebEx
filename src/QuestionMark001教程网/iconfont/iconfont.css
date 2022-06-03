@@ -1,0 +1,60 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3447917 */
+  src: url('iconfont.woff2?t=1654259841131') format('woff2'),
+       url('iconfont.woff?t=1654259841131') format('woff'),
+       url('iconfont.ttf?t=1654259841131') format('truetype'),
+       url('iconfont.svg?t=1654259841131#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-info:before {
+  content: "\e635";
+}
+
+.icon-musiclist:before {
+  content: "\e69c";
+}
+
+.icon-home:before {
+  content: "\e7a7";
+}
+
+.icon-alipay:before {
+  content: "\e60b";
+}
+
+.icon-email:before {
+  content: "\e60c";
+}
+
+.icon-csdn:before {
+  content: "\e60d";
+}
+
+.icon-github:before {
+  content: "\e60e";
+}
+
+.icon-wechat:before {
+  content: "\e60f";
+}
+
+.icon-qq:before {
+  content: "\e610";
+}
+
+.icon-leetcode:before {
+  content: "\e611";
+}
+
+.icon-bilibili:before {
+  content: "\e609";
+}
+
