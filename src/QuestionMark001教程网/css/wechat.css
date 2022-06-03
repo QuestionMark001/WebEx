@@ -1,0 +1,14 @@
+.QRimg {
+    height: auto;
+    width: auto\9; /* \9适配IE浏览器 */
+    max-width: 100%;
+}
+
+body {
+    background-image: url(./../wechat/No1.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    overflow: auto;
+}
