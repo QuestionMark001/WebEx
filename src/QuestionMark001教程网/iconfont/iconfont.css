@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3447917 */
-  src: url('iconfont.woff2?t=1654259841131') format('woff2'),
-       url('iconfont.woff?t=1654259841131') format('woff'),
-       url('iconfont.ttf?t=1654259841131') format('truetype'),
-       url('iconfont.svg?t=1654259841131#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1654305444372') format('woff2'),
+       url('iconfont.woff?t=1654305444372') format('woff'),
+       url('iconfont.ttf?t=1654305444372') format('truetype'),
+       url('iconfont.svg?t=1654305444372#iconfont') format('svg');
 }
 
 .iconfont {
@@ -12,6 +12,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pingtaijiaocheng:before {
+  content: "\e674";
 }
 
 .icon-info:before {
