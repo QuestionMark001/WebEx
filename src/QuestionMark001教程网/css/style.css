@@ -3,21 +3,22 @@ body {
 	padding: 0;
 }
 
-.page-header {
+.page_header {
 	width: 100%;
     height: 100px;
 	position: fixed;
 	background: #a7c2a7;
     box-shadow:0 10px 15px rgb(0 0 0 / 15%);  /* 阴影 */
+    z-index: 1;
 }
 
-.header-title {
+.header_title {
     margin: 35px;
     text-align: left;
     width: 300px;
 }
 
-.header-title a {
+.header_title a {
     position: relative;
 	display: block;
 	text-decoration: none;
@@ -25,11 +26,11 @@ body {
 	font-weight: bold;
 }
 
-.header-title a:hover {
+.header_title a:hover {
 	color:#fff;
 }
 
-.header-item {
+.header_item {
     position: fixed; /* 固定在页面顶部 */
 	top:10px;
 	right:20px;
@@ -38,26 +39,25 @@ body {
 	display: flex; /* 弹性布局，使li排成一行 */
 }
 
-.header-item li {
+.header_item li {
     list-style: none;
 }
 
-.header-item li a {
+.header_item li a {
     position: relative;
 	display: block;
 	padding: 10px 20px;
 	margin: 20px 0;
 	text-decoration: none;
-	text-transform: uppercase; /* 将字符转为大写 */
 	color: #262626;
 	font-weight: bold;
 }
 
-.header-item li a:hover {
+.header_item li a:hover {
 	color:#fff;
 }
 
-.header-item li a:before {
+.header_item li a:before {
 	/* a:before，在a链接之前添加新内容，这里添加上下边框 */
 	content:'';
 	position: absolute;
@@ -73,12 +73,12 @@ body {
 	z-index: -1;
 }
 
-.header-item li a:hover:before {
+.header_item li a:hover:before {
 	transform: scaleY(1); /* 拉长边框两倍 */
 	opacity:1;
 }
 
-.header-item li a:after {
+.header_item li a:after {
 	content:'';
 	position: absolute;
 	top: 1px;
@@ -91,7 +91,7 @@ body {
 	z-index: -1;
 }
 
-.header-item li a:hover:after {
+.header_item li a:hover:after {
 	transform: scale(1);
 }
 
@@ -101,14 +101,79 @@ body {
     padding-right: 50px;
 }
 
-#sidebar-title {
+#subhead {
     margin: 0;
 }
 
-#sidebar-icon {
+#subhead_icon {
     width: 2em;
     height: 2em;
     vertical-align: -0.6em;
     fill: currentColor;
     overflow: hidden;
+}
+
+iframe {
+    z-index: 0;
+}
+
+/* CSS响应式设计，适配移动端 */
+@media all and (max-width: 890px) {
+	.header_title {
+		margin-left: 15px;
+		text-align: left;
+		width: 245px;
+		font-size: 20px;
+	}
+    .header_item {
+        top: 100px;
+        width: 40%;
+        padding: 0;
+        position:fixed;
+        background-color: #fff;
+        flex-direction: column; /* 向下排版 */
+		display: none;
+    }
+    .header_item li {
+        float: none;
+        border-bottom: 1px solid lightgray;
+    }
+    .header_item li a {
+        margin: 0;
+        padding: 20px 25px;
+    }
+    .header_item li a:before {
+        height: 0;
+        border-top: 0px;
+        border-bottom: 0px;
+    }
+
+    /* 移动端菜单 */
+	.container {
+		display: inline-block;
+		cursor: pointer;
+		position: relative;
+		left: 90%;
+		bottom: 65px;
+	}
+	
+	.container .bar1,.bar2,.bar3 {
+		width: 35px;
+		height: 5px;
+		background-color: #333;
+		margin: 6px 0;
+		transition: 0.4s;
+	}
+	
+	.change .bar1 {
+		-webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+		transform: rotate(-45deg) translate(-9px, 6px) ;
+	}
+	
+	.change .bar2 {opacity: 0;}
+	
+	.change .bar3 {
+		-webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+		transform: rotate(45deg) translate(-8px, -8px) ;
+	}
 }
