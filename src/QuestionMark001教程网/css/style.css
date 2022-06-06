@@ -125,6 +125,7 @@ iframe {
 		width: 245px;
 		font-size: 20px;
 	}
+
     .header_item {
         top: 100px;
         width: 40%;
@@ -134,14 +135,17 @@ iframe {
         flex-direction: column; /* 向下排版 */
 		display: none;
     }
+
     .header_item li {
         float: none;
         border-bottom: 1px solid lightgray;
     }
+
     .header_item li a {
         margin: 0;
         padding: 20px 25px;
     }
+	
     .header_item li a:before {
         height: 0;
         border-top: 0px;
