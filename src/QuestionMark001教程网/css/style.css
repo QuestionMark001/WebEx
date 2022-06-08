@@ -96,7 +96,8 @@ body {
 }
 
 #content {
-    padding-top: 150px;
+    padding-top: 130px;
+	padding-bottom: 60px;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -115,6 +116,29 @@ body {
 
 iframe {
     z-index: 0;
+}
+
+/* 页脚 */
+#page_footer {
+	background-image: url('./../img/background1.jpg');
+	background-attachment: scroll;
+	background-position: bottom;
+	background-size: cover;
+	position: absolute;
+	width: 100%;
+	height: 200px;
+}
+
+.copyright {
+	text-align: center;
+	margin: 70px;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.myGitHub {
+	margin-left: 49%;
 }
 
 /* CSS响应式设计，适配移动端 */
@@ -145,7 +169,7 @@ iframe {
         margin: 0;
         padding: 20px 25px;
     }
-	
+
     .header_item li a:before {
         height: 0;
         border-top: 0px;
