@@ -2,8 +2,8 @@
  * @Author: QuestionMark001
  * @Date: 2022-06-04 09:40:00
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2022-06-06 21:03:17
- * @FilePath: \LocalProjects\WebEx\src\QuestionMark001教程网\tutorial.html
+ * @LastEditTime: 2022-06-12 12:16:47
+ * @FilePath: /LocalProjects/WebEx/src/QuestionMark001教程网/tutorial.html
  * @Description: 教程小网站教程页
  * 
  * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
@@ -56,9 +56,37 @@
                         </svg> 教程
                     </h2>
                 </div>
-                <br/>
-                <div style="position: relative; padding: 30% 45%;">
-                    <iframe style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" src="https://player.bilibili.com/player.html?aid=594524634&bvid=BV12q4y1477i&cid=542003974&page=1&as_wide=1&high_quality=1&danmaku=1" frameborder="no" scrolling="no"></iframe> 
+                <div id="home_content">
+                    <h2 id="homelist_h">推荐教程</h2>
+                        <ul id="homelist_ul">
+                            <li class="html5_li"><a href="./tutorial/html5_tutorial.html">HTML5 快速开始</a></li>
+                            <li class="css_li"><a href="./tutorial/css_tutorial.html">CSS 快速开始</a></li>
+                            <li class="java_li"><a href="./tutorial/java_tutorial.html">Java 快速开始</a></li>
+                            <li class="mysql_li"><a href="./tutorial/mysql_tutorial.html">MySQL™ 8.0 安装教程</a></li>
+                        </ul>
+                </div>
+                <div id="main_body">
+                    <h3>HTML5 简介</h3>
+                    <img src="./img/html5.png" alt="HTML5_Logo" width="200px" title="HTML5"/>
+                    <p><span class="bold_font">超文本标记语言</span>（英语：HyperText Markup Language，简称：<span class="bold_font">HTML</span>）是一种用于创建网页的标准标记语言。<br/>您可以使用 HTML 来建立自己的 WEB 站点，HTML 运行在浏览器上，由浏览器来解析。</p>
+                    <p><span class="bold_font">HTML5</span> 是 HyperText Markup Language 5 的缩写，HTML5 技术结合了 HTML4.01 的相关标准并革新。<br/>HTML5符合现代网络发展要求，在 2008 年正式发布。<br/>HTML5 由不同的技术构成，其在互联网中得到了非常广泛的应用，提供更多增强网络应用的标准机。<br/>与传统的技术相比，HTML5 的语法特征更加明显，并且结合了 SVG 的内容。<br/>HTML5 在 2012 年已形成了稳定的版本。</p>
+                    <button class="button button2"><a href="./tutorial/html5_tutorial.html" class="button_link bold_font">HTML5 快速开始 >></a></button>
+                    <br/>
+                    <h3>CSS 简介</h3>
+                    <img src="./img/css.jpg" alt="CSS3_Logo" width="200px" title="CSS3"/>
+                    <p><span class="bold_font">层叠样式表</span>（英文全称：Cascading Style Sheets，简称：<span class="bold_font">CSS</span>）是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+                    <p><span class="bold_font">CSS3</span> 是CSS（层叠样式表）技术的升级版本，于1999年开始制订，2001年5月23日W3C完成了CSS3的工作草案，主要包括盒子模型、列表模块、超链接方式、语言模块、背景和边框、文字特效、多栏布局等模块。</p>
+                    <button class="button button2"><a href="./tutorial/css_tutorial.html" class="button_link bold_font">CSS 快速开始 >></a></button>
+                    <br/>
+                    <h3>Java 简介</h3>
+                    <img src="./img/java.png" alt="Java_Logo" width="200px" title="Java"/>
+                    <p><span class="bold_font">Java</span> 是一门面向对象的编程语言，不仅吸收了C++语言的各种优点，还摒弃了C++里难以理解的多继承、指针等概念，因此Java语言具有功能强大和简单易用两个特征。Java语言作为静态面向对象编程语言的代表，极好地实现了面向对象理论，允许程序员以优雅的思维方式进行复杂的编程。</p>
+                    <button class="button button2"><a href="./tutorial/java_tutorial.html" class="button_link bold_font">Java 快速开始 >></a></button>
+                    <br/>
+                    <h3>MySQL™ 简介</h3>
+                    <img src="./img/mysql.jpg" alt="MySQL_Logo" width="200px" title="MySQL"/>
+                    <p><span class="bold_font">MySQL</span> 是一个关系型数据库管理系统，由瑞典 MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
+                    <button class="button button2"><a href="./tutorial/mysql_tutorial.html" class="button_link bold_font">MySQL™ 8.0 安装教程 >></a></button>
                 </div>
             </div>
             <footer id="page_footer"> <!-- <footer>标签是 HTML 5 中的新标签 -->

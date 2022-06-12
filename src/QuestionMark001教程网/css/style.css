@@ -1,6 +1,13 @@
+/* 定义@font-face */
+@font-face {
+	font-family: HarmonyOS_Sans_SC_Regular;
+	src: url(./../fonts/HarmonyOS_Sans_SC_Regular.ttf);
+}
+
 body {
 	margin: 0;
 	padding: 0;
+	font-family: HarmonyOS_Sans_SC_Regular; /* 使用鸿蒙简中字体 */
 }
 
 .page_header {
@@ -100,10 +107,18 @@ body {
 	padding-bottom: 60px;
     padding-left: 50px;
     padding-right: 50px;
+	background-image: url(./../img/background0.jpg);
+    z-index: -999;
+    background-attachment: local;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-#subhead {
-    margin: 0;
+#page_subhead {
+	background-color: #a7c2a7;
+	border-radius: 8px;
+	width: 115px;
 }
 
 #subhead_icon {
@@ -114,8 +129,108 @@ body {
     overflow: hidden;
 }
 
+/* 教程列表 */
+/* 列表div位置 */
+#home_content {
+	width: 210px;
+	margin: 20px 0px 20px 30px;
+	display: inline-table;
+	vertical-align: top;
+}
+
+/* 列表标题样式 */
+#homelist_h {
+    background: #a7c2a7 5% 50% no-repeat;
+    padding-left: 25px;
+    color: #006666;
+    font-size: 20px;
+    line-height: 55px;
+    height: 50px;
+	box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+    border-bottom: 5px solid #99CCCC;
+    margin: 0 auto;
+}
+
+/* 列表链接样式及其颜色 */
+#homelist_ul li a:link,#homelist_ul li a:visited {
+    color: #666;
+    text-decoration: none;
+}
+#homelist_ul li a:hover {color: #3399CC;}
+#homelist_ul li a:active {color: #000;}
+#homelist_ul li a {font-size: 16px;}
+
+#homelist_ul {
+    list-style: none;
+    background-color: #fff5ee;
+    line-height: 35px;
+    padding: 15px 0px 25px 0px;
+    margin: 0 auto;
+}
+
+#homelist_ul li {
+    padding-left: 22px;
+}
+
+/* 正文部分 */
+#main_body {
+	background-color: #fff5ee;
+	border-radius: 10px;
+	display: inline-block;
+	margin-left: 30px;
+	padding: 25px;
+	opacity: 0.9;
+	line-height: 150%;
+	width: 58%;
+}
+
+#link_container {
+	line-height: 200%;
+}
+
+.link_style a:link,.link_style a:visited {
+	color: #3399CC;
+    text-decoration: none;
+}
+.link_style a:hover {text-decoration: underline;}
+.link_style a:active {color: #000;}
+
+.link_style li a:link,.link_style li a:visited {
+	color: #3399CC;
+    text-decoration: none;
+}
+.link_style li a:hover {text-decoration: underline;}
+.link_style li a:active {color: #000;}
+
 iframe {
     z-index: 0;
+}
+
+.bold_font {
+	font-weight: bold; /* span标签文本加粗 */
+}
+
+/* 按钮 */
+.button {
+    background-color: #a7c2a7;
+    border: none;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+	border-radius: 5px;
+}
+.button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+	border-radius: 10px;
+}
+.button_link {
+	text-decoration: none;
+	color: #000;
 }
 
 /* 页脚 */
@@ -203,5 +318,15 @@ iframe {
 	.change .bar3 {
 		-webkit-transform: rotate(45deg) translate(-8px, -8px) ;
 		transform: rotate(45deg) translate(-8px, -8px) ;
+	}
+
+	#home_content {
+		width: 210px;
+		margin: 20px 0px 20px 0px;
+	}
+
+	#main_body {
+		width: 85%;
+		margin-left: 0px;
 	}
 }

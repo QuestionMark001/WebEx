@@ -1,8 +1,11 @@
 # robots.txt
 User-agent: *
 Allow: /
+Allow: /tutorial/
 
 Disallow: /js/
 Disallow: /css/
 Disallow: /fonts/
 Disallow: /iconfont/
+Disallow: /Aplayer/
+Disallow: /MetingJS/
