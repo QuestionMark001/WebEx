@@ -9,3 +9,4 @@ Disallow: /fonts/
 Disallow: /iconfont/
 Disallow: /Aplayer/
 Disallow: /MetingJS/
+Disallow: /wechat/
