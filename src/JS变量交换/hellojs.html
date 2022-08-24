@@ -1,0 +1,37 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-08-24 15:10:03
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-08-24 15:35:36
+ * @FilePath: /LocalProjects/WebEx/src/JS变量交换/hellojs.html
+ * @Description: JS变量交换训练
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hello,JS!</title>
+        <script>
+            var bowl_1,bowl_2,bowl_3;
+            bowl_1 = '🍏';
+            bowl_2 = '🍎';
+            console.log('现有两个苹果，分别装在两个碗里。');
+            console.log('没交换之前 (๑•̀ㅂ•́)و✧');
+            console.log('第一个碗中装的是：' + bowl_1);
+            console.log('第二个碗中装的是：' + bowl_2);
+            bowl_3 = bowl_2;
+            bowl_2 = bowl_1;
+            bowl_1 = bowl_3;
+            console.log('两个苹果换了个碗       Σ( ° △ °|||)︴');
+            console.log('第一个碗中装的是：' + bowl_1);
+            console.log('第二个碗中装的是：' + bowl_2);
+        </script>
+    </head>
+    <body>
+        <h2>请按F12打开控制台查看！</h2>
+    </body>
+</html>
