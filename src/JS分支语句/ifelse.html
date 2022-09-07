@@ -1,0 +1,62 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-07 14:24:48
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-07 15:37:55
+ * @FilePath: /LocalProjects/WebEx/src/JS分支语句/ifelse.html
+ * @Description: if...else...判断年份生肖
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>判断年份生肖 1</title>
+        <script>
+            var year = prompt('请输入一个四位数的年份数值：\n（小数点后的数字将直接省略）');
+            var remainder = parseInt(year%12);
+            if (remainder == 0) {
+                alert(year + '年为猴年！');
+            }
+            else if (remainder == 1) {
+                alert(year + '年为鸡年！');
+            }
+            else if (remainder == 2) {
+                alert(year + '年为狗年！');
+            }
+            else if (remainder == 3) {
+                alert(year + '年为猪年！');
+            }
+            else if (remainder == 4) {
+                alert(year + '年为鼠年！');
+            }
+            else if (remainder == 5) {
+                alert(year + '年为牛年！');
+            }
+            else if (remainder == 6) {
+                alert(year + '年为虎年！');
+            }
+            else if (remainder == 7) {
+                alert(year + '年为兔年！');
+            }
+            else if (remainder == 8) {
+                alert(year + '年为龙年！');
+            }
+            else if (remainder == 9) {
+                alert(year + '年为蛇年！');
+            }
+            else if (remainder == 10) {
+                alert(year + '年为马年！');
+            }
+            else if (remainder == 11) {
+                alert(year + '年为羊年！');
+            }
+        </script>
+    </head>
+    <body>
+        <h2>if...else...判断年份生肖</h2>
+    </body>
+</html>

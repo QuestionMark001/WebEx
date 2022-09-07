@@ -1,0 +1,79 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-07 14:25:05
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-07 15:38:39
+ * @FilePath: /LocalProjects/WebEx/src/JS分支语句/switchcase.html
+ * @Description: switch...case...判断年份生肖
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>判断年份生肖 2</title>
+        <script>
+            var year = prompt('请输入一个四位数的年份数值：\n（小数点后的数字将直接省略）');
+            var remainder = parseInt(year%12);
+            switch (remainder) {
+                case 0:
+                    alert(year + '年为猴年！');
+                    break;
+
+                case 1:
+                    alert(year + '年为鸡年！');
+                    break;
+
+                case 2:
+                    alert(year + '年为狗年！');
+                    break;
+
+                case 3:
+                    alert(year + '年为猪年！');
+                    break;
+
+                case 4:
+                    alert(year + '年为鼠年！');
+                    break;
+
+                case 5:
+                    alert(year + '年为牛年！');
+                    break;
+
+                case 6:
+                    alert(year + '年为虎年！');
+                    break;
+
+                case 7:
+                    alert(year + '年为兔年！');
+                    break;
+
+                case 8:
+                    alert(year + '年为龙年！');
+                    break;
+
+                case 9:
+                    alert(year + '年为蛇年！');
+                    break;
+
+                case 10:
+                    alert(year + '年为马年！');
+                    break;
+
+                case 11:
+                    alert(year + '年为羊年！');
+                    break;
+
+                default:
+                    alert('请输入正确的年份数值！');
+                    break;
+            }
+        </script>
+    </head>
+    <body>
+        <h2>switch...case...判断年份生肖</h2>
+    </body>
+</html>
