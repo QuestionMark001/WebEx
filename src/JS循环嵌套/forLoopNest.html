@@ -1,0 +1,36 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-19 11:45:52
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-19 15:25:25
+ * @FilePath: /LocalProjects/WebEx/src/JS循环嵌套/forLoopNest.html
+ * @Description: JS循环嵌套(for)
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS循环嵌套(for)</title>
+        <script>
+            var str = '';
+            var i = prompt('打印行数：');
+            var j = prompt('打印列数：');
+            for (var row = 1; row <= i; row++) {
+                for (var col = 1; col <= j; col++) {
+                    str = str + '😅';
+                }
+                str = str + '\n';
+            }
+            console.log(str)
+        </script>
+    </head>
+    <body>
+        <h2>JS循环嵌套(for)</h2>
+        <h3><script>document.write('行：' + i)</script></h3>
+        <h3><script>document.write('列：' + j)</script></h3>
+    </body>
+</html>
