@@ -1,0 +1,40 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-26 20:04:11
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-26 20:35:37
+ * @FilePath: /LocalProjects/WebEx/src/JS二维数组/getMaxOf2DIndex.html
+ * @Description: JS二维数组取最大值
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS二维数组取最大值</title>
+        <script>
+            /* JS二维数组取最大值 */
+            var arr = [
+                [[6, 39, 20],
+                 [8, 3, 12],
+                 [4, 7, 80]]
+            ];
+            var values = arr[0].map(function(elt) {return elt[0];});
+            var max1 = Math.max.apply(null, values); // 第一列最大值
+            var values = arr[0].map(function(elt) {return elt[1];});
+            var max2 = Math.max.apply(null, values); // 第二列最大值
+            var values = arr[0].map(function(elt) {return elt[2];});
+            var max3 = Math.max.apply(null, values); // 第三列最大值
+
+            console.log('第一列最大值为：', max1);
+            console.log('第二列最大值为：', max2);
+            console.log('第三列最大值为：', max3);
+        </script>
+    </head>
+    <body>
+        <h2>JS二维数组取最大值</h2>
+    </body>
+</html>
