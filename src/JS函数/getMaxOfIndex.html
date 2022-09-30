@@ -1,0 +1,29 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-29 09:07:49
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-29 09:40:46
+ * @FilePath: /LocalProjects/WebEx/src/JS函数/getMaxOfIndex.html
+ * @Description: JS一维数组求最大值
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JS求一维数组求最大值</title>
+        <script>
+            function ArrMax(arr) {
+                return Math.max.apply (null, arr);
+            }
+
+            arr = [1, 4, 5, 7, 10, 0];
+        </script>
+    </head>
+    <body>
+        <script>console.log('数组为：',arr);</script><br/>
+        <script>console.log('最大值为：',ArrMax(arr));</script>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-09-29 08:22:32
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-09-29 09:04:49
+ * @FilePath: /LocalProjects/WebEx/src/JS函数/NumAdd.html
+ * @Description: JS累加函数
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>JS累加函数</title>
+        <script>
+            function NumAdd(start,end) {
+                var sum = 0;
+                for (var i = start; i <= end; i++) {
+                    sum+=i;
+                    
+                }
+                return sum;
+            }
+
+            start = prompt('请输入第一个整数：');
+            start = parseFloat(start);
+            end = prompt('请输入第二个整数：');
+            end = parseFloat(end);
+        </script>
+    </head>
+    <body>
+        <script>document.write('第一个数值为：',start);</script><br/>
+        <script>document.write('第二个数值为：',end);</script><br/>
+        <p>P.S.小数点后的位数将省略</p><br/>
+        <script>document.write('相加为：',NumAdd(parseInt(start),parseInt(end)));</script>
+    </body>
+</html>
