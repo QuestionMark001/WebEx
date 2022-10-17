@@ -1,0 +1,47 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-10-17 10:40:40
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-10-17 14:21:06
+ * @FilePath: /LocalProjects/WebEx/src/JS对象/JSObject.html
+ * @Description: JS对象练习
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS对象练习</title>
+    <script>
+        var emo = {
+            name: 'Emo_Wang',
+            sex: 'male',
+            age: '20',
+
+            music: function() {
+                console.log(this.name+'放了一首《哪里都是你》');
+            }
+        }
+
+        console.log(emo.name);
+        console.log(emo.sex);
+        emo.music();
+
+        // 构造函数
+        function perSon(n,s,m) {
+            this.name = n;
+            this.sex = s;
+            this.music = m;
+        }
+
+        var man = new perSon('Emo_Wang','male','又放了首《下雨天》');
+        console.log(man);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
