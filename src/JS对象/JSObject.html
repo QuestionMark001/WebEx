@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2022-10-17 10:40:40
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2022-10-17 14:21:06
+ * @LastEditTime: 2022-10-17 15:30:46
  * @FilePath: /LocalProjects/WebEx/src/JS对象/JSObject.html
  * @Description: JS对象练习
  * 
@@ -31,14 +31,19 @@
         emo.music();
 
         // 构造函数
-        function perSon(n,s,m) {
+        function Person(n,s,m) {
             this.name = n;
             this.sex = s;
             this.music = m;
+            this.fn1 = function () {
+                console.log('又放了一首'+this.music);
+            }
         }
 
-        var man = new perSon('Emo_Wang','male','又放了首《下雨天》');
-        console.log(man);
+        var man1 = new Person('Emo_Wang','male','《下雨天》');
+        console.log(man1.name);
+        console.log(man1.sex);
+        man1.fn1();
     </script>
 </head>
 <body>
