@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2022-10-17 10:40:40
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2022-10-17 15:30:46
+ * @LastEditTime: 2022-10-18 10:39:37
  * @FilePath: /LocalProjects/WebEx/src/JS对象/JSObject.html
  * @Description: JS对象练习
  * 
@@ -44,6 +44,12 @@
         console.log(man1.name);
         console.log(man1.sex);
         man1.fn1();
+
+        // 遍历对象成员
+        for (var k in man1) {
+            console.log(k);
+            console.log(man1[k]);
+        }
     </script>
 </head>
 <body>
