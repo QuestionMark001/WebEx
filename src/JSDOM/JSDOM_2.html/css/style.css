@@ -1,0 +1,44 @@
+/*新闻列表div字体*/
+.newslist {
+    font-family: "宋体";
+}
+
+/*新闻列表div位置*/
+.newslist {
+	width:320px;
+	margin:20px auto;
+}
+
+/*新闻列表标题样式*/
+.newslisth {
+    background: #ff6600 url('./../img/title_bg.png') 5% 50% no-repeat;
+    padding-left: 40px;
+    color: #fff;
+    font-size: 15px;
+    line-height: 35px;
+    height: 35px;
+    border-bottom: 5px solid #cc5200;
+    margin: 0 auto;
+}
+
+/*新闻列表链接样式及其颜色*/
+.newslistul li a:link,.newslistul li a:visited {
+    color: #666;
+    text-decoration: none;
+}
+.newslistul li a:hover {color: #f60;}
+.newslistul li a:active {color: #f60;}
+.newslistul li a {font-size: 14px;}
+
+.newslistul {
+    list-style: none;
+    background-color: #fff5ee;
+    line-height: 20px;
+    padding: 15px 5px 25px 15px;
+    margin: 0 auto;
+}
+
+.newslistul li {
+    background: url('./../img/li_bg.png') 0% 50% no-repeat;
+    padding-left: 22px;
+}
