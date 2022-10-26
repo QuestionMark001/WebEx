@@ -1,0 +1,126 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-10-22 10:23:00
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-10-24 11:26:29
+ * @FilePath: /LocalProjects/WebEx/src/JSDOM/JSDOM_3/JSDOM_3.html
+ * @Description: JS DOM练习3
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM练习3</title>
+</head>
+<body>
+    <div>
+        <h2>练习1</h2>
+        <p>选项：</p>
+        <form>
+            <label class="one"><input type="checkbox" name="fruit" value="苹果"/>苹果</label>
+            <label class="two"><input type="checkbox" name="fruit" value="香蕉"/>香蕉</label>
+        </form>
+    
+        <script>
+            var fruits = document.getElementsByName('fruit');
+            console.log(fruits);
+            fruits[1].checked = true; // 将第二项checked属性设置为true
+    
+            var Optionlabel_1 = document.getElementsByClassName('one');
+            var Optionlabel_2 = document.getElementsByClassName('two');
+            
+            Optionlabel_1[0].style.color = 'red';
+            Optionlabel_2[0].style.color = 'blue';
+        </script>
+    </div>
+    <script>
+        console.log('************************');
+    </script>
+    <div>
+        <h2 class="title_02">练习2</h2>
+        <p class="content" id="p1">选项：</p>
+        <ul id="nav">
+            <li class="content">index</li>
+            <li>product</li>
+        </ul>
+    
+        <script>
+            // 只获取第一个class为title_02的元素
+            var t2 = document.querySelector('.title_02');
+            console.log(t2);
+            // 获取所有class为content的元素
+            var contentAll = document.querySelectorAll('.content');
+            console.log(contentAll);
+            // 只获取第一个id为nav的元素
+            var nav_01 = document.querySelector('#nav');
+            console.log(nav_01);
+            // 获取所有li元素
+            var liAll = document.querySelectorAll('li');
+            console.log(liAll);
+        </script>
+    </div>
+    <script>
+        console.log('*********************');
+    </script>
+    <div>
+        <script>
+            var allHtml = document.documentElement;
+            console.log(allHtml);
+            var allHead = document.head;
+            console.log(allHead);
+        </script>
+    </div>
+    <script>
+        console.log('*********************');
+    </script>
+    <script>
+        console.log('*********************');
+    </script>
+    <div>
+        <h2>练习3</h2>
+        <button id="button_01">点我</button>
+        <p id="p01">请点击上方按钮</p>
+        <input type="text" value="Hello" id="text_01"/>
+        
+        <script>
+            var bt01 = document.getElementById('button_01');
+            var button_p = document.querySelector('#p01');
+            var t01 = document.querySelector('#text_01');
+            
+            bt01.onclick = function() {
+                alert('按钮已被点击');
+                button_p.innerHTML = '<strong>按钮已被点击</strong>';
+                t01.getAttribute('value');
+                t01.setAttribute('value','World!');
+            }
+        </script>
+    </div>
+    <div>
+        <p>*****************</p>
+        <br/>
+        <button id="button_✅">✅</button>
+        <button id="button_❌">❌</button>
+        <br/>
+        <img src="" height="200px" title=""/>
+        <script>
+            var bt_yes = document.querySelector('#button_✅');
+            var bt_no = document.querySelector('#button_❌');
+            var vimg = document.querySelector('img');
+
+            bt_yes.onclick = function() {
+                vimg.src = './img/✅.jpg';
+                vimg.title = '✅'
+            }
+            bt_no.onclick = function() {
+                vimg.src = './img/❌.jpg';
+                vimg.title = '❌'
+            }
+        </script>
+    </div>
+</body>
+</html>
