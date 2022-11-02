@@ -1,0 +1,63 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-10-26 14:04:17
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-10-26 14:50:42
+ * @FilePath: /LocalProjects/WebEx/src/JSDOM/JSDOM_4.html
+ * @Description: JSDOM 4练习
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM练习4</title>
+</head>
+<body>
+    <div>
+        <h2>获取时间</h2>
+        <button id="button_01">点我</button>
+        <p id="p01">请点击上方按钮</p>
+        
+        <script>
+            var bt01 = document.getElementById('button_01');
+            var time = document.getElementById('p01');
+            var currentTime = new Date();
+            
+            bt01.onclick = function() {
+                time.innerHTML = currentTime.toLocaleString();
+            }
+        </script>
+
+        <h2>距离2023年春节倒计时</h2>
+        
+        <button id="button_02">点我</button>
+        <p id="p02">请点击上方按钮</p>
+        
+        <script>
+            var bt02 = document.getElementById('button_02');
+            var zhYearTime = document.getElementById('p02');
+            var showtime = function () {
+                var nowtime = new Date(),  //获取当前时间
+                    endtime = new Date("2023/1/22");  //定义结束时间
+                var lefttime = endtime.getTime() - nowtime.getTime(),  //距离结束时间的毫秒数
+                    leftd = Math.floor(lefttime/(1000*60*60*24)),  //计算天数
+                    lefth = Math.floor(lefttime/(1000*60*60)%24),  //计算小时数
+                    leftm = Math.floor(lefttime/(1000*60)%60),  //计算分钟数
+                    lefts = Math.floor(lefttime/1000%60);  //计算秒数
+                return leftd + "天" + lefth + ":" + leftm + ":" + lefts;  //返回倒计时的字符串
+            }
+
+            bt02.onclick = setInterval (function () {
+                zhYearTime.innerHTML = showtime();
+            }, 1000);  //反复执行函数本身
+        </script>
+        
+    </div>
+
+</body>
+</html>

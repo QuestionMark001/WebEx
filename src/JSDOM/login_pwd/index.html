@@ -1,0 +1,68 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-10-29 14:17:44
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-10-31 10:43:43
+ * @FilePath: /LocalProjects/WebEx/src/JSDOM/login_pwd/index.html
+ * @Description: 前端密码框练习
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      .box {
+        position: relative;
+        width: 400px;
+        border: 1px solid #ccc;
+        margin: 100px auto;
+        padding: 2px;
+      }
+      .box input {
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+      }
+      .box img {
+        position: absolute;
+        top: 4px;
+        right: 6px;
+        width: 24px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+		<form
+			  <label for="pwd">
+					<img src="./close.png" alt="" id="eye">
+			  </label>
+			  <input type="password" name="" id="pwd">
+		</form>
+    </div>
+
+    <script>
+      var eye_switch = document.getElementById('eye');
+      var pwd_switch = document.getElementById('pwd');
+      var flag = 0;
+      
+      eye_switch.onclick = function() {
+        if (flag == 0) {
+          eye_switch.src = './open.png';
+          pwd_switch.type = 'text';
+          flag = 1;
+        } else {
+          eye_switch.src = './close.png';
+          pwd_switch.type = 'password';
+          flag = 0;
+        }
+      }
+    </script>
+   
+  </body>
+</html>

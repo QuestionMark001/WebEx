@@ -1,0 +1,151 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-11-01 10:24:31
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-11-02 14:38:33
+ * @FilePath: /LocalProjects/WebEx/src/JSDOM/JSDOM_5.html
+ * @Description: JS按钮/列表颜色-排他思想
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS按钮/列表颜色-排他思想</title>
+    <style>
+        #ex_title {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        #home_content {
+		    width: 300px;
+		    margin: 20px 0px 20px 20px;
+	    }
+        /* 列表标题样式 */
+        #homelist_h {
+            background: #a7c2a7 5% 50% no-repeat;
+            padding-left: 25px;
+            color: #006666;
+            font-size: 20px;
+            line-height: 55px;
+            height: 50px;
+	        box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+            border-bottom: 5px solid #99CCCC;
+            margin: 0 auto;
+        }
+        /* 列表链接样式及其颜色 */
+        #homelist_ul li a:link,#homelist_ul li a:visited {
+            color: #666;
+            text-decoration: none;
+        }
+        #homelist_ul li a:hover {color: #3399CC;}
+        #homelist_ul li a:active {color: #000;}
+        #homelist_ul li a {font-size: 16px;}
+
+        #homelist_ul {
+            list-style: none;
+            background-color: #fff5ee;
+            line-height: 35px;
+            padding: 15px 0px 25px 0px;
+            margin: 0 auto;
+        }
+
+        #homelist_ul li {
+            padding-left: 22px;
+        }
+
+        /* 点击前鼠标移动到li上的样式 */
+        .homelist_li {
+            background-color: #a7c2a7;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="ex_title">排他思想</p>
+
+    <h2>按钮颜色</h2>
+    <form>
+        <button type="button">按钮1</button>
+        <button type="button">按钮2</button>
+        <button type="button">按钮3</button>
+        <button type="button">按钮4</button>
+        <button type="button">按钮5</button>
+    </form>
+    <script>
+        var btn = document.getElementsByTagName('button');
+
+        for (var i = 0; i < btn.length; i++) {
+            btn[i].onclick = function() {
+                for (var i = 0; i < btn.length; i++) {
+                    btn[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = 'pink';
+            }
+        }
+    </script>
+
+    <h2>列表颜色</h2>
+    <div id="home_content">
+        <h2 id="homelist_h">推荐教程</h2>
+            <ul id="homelist_ul">
+                <li class="homelist_li_off"><a href="#" class="homelist_li_a">HTML5 快速开始</a></li>
+                <li class="homelist_li_off"><a href="#" class="homelist_li_a">CSS 快速开始</a></li>
+                <li class="homelist_li_off"><a href="#" class="homelist_li_a">Java 快速开始</a></li>
+                <li class="homelist_li_off"><a href="#" class="homelist_li_a">MySQL™ 8.0 安装教程</a></li>
+            </ul>
+    </div>
+    <div class="tab_con">
+        <div class="item">HTML5 快速开始</div>
+        <div class="item">CSS 快速开始</div>
+        <div class="item">Java 快速开始</div>
+        <div class="item">MySQL™ 8.0 安装教程</div>
+    </div>
+    <script>
+        var li_color = document.getElementsByClassName('homelist_li_off');
+
+        var items = document.querySelector('.tab_con').querySelectorAll('.item');
+
+        // 点击前鼠标移动到li上的效果
+        for (var j = 0; j < li_color.length; j++) {
+            li_color[j].onmouseover = function () {
+                this.className = 'homelist_li';
+            }
+
+            li_color[j].onmouseout = function () {
+                this.className = 'homelist_li_off';
+            }
+        }
+
+        // 点击后背景颜色效果及下方div内容响应
+        for (var i = 0; i < li_color.length; i++) {
+
+            li_color[i].setAttribute('index', i);
+
+            li_color[i].onclick = function() {
+                for (var i = 0; i < li_color.length; i++) {
+                    li_color[i].style.backgroundColor = '';
+                }
+                this.style.backgroundColor = '#a7c2a7';
+
+                var p_index = this.getAttribute('index');
+
+                // 处理div响应
+                for (var k = 0; k < items.length; k++) {
+                    items[k].style.display = 'none';
+                }
+                items[p_index].style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
