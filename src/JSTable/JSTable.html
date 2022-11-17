@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2022-11-16 18:45:34
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2022-11-16 19:56:50
+ * @LastEditTime: 2022-11-17 19:45:51
  * @FilePath: /LocalProjects/WebEx/src/JSTable/JSTable.html
  * @Description: JS简易表格
  * 
@@ -12,10 +12,10 @@
 <!DOCTYPE html>
 
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>JS简易表格</title>
-		<style>
+    <head>
+        <meta charset="UTF-8">
+        <title>JS简易表格</title>
+        <style>
             table {
                 width: 600px;
                 cursor: pointer;
@@ -30,36 +30,36 @@
             table tr {
                 background-color: #339ca3;
             }
-		</style>
-	</head>
+        </style>
+    </head>
 
-	<body>
-		<div id="dv">
+    <body>
+        <div id="dv">
             请输入姓名:
-		    <input type="text" value="" id="uname"/>
-		    <br/>
+            <input type="text" value="" id="uname"/>
+            <br/>
             请输入邮箱:
-		    <input type="text" value="" id="email"/>
-		</div>
+            <input type="text" value="" id="email"/>
+        </div>
 
-		<input type="button" value="添加" id="btn" />
-		<table border="1" cellpadding="0" cellspacing="0" id="tb">
-		    <thead>
-		        <tr>
-		            <th>姓名</th>
-		            <th>邮箱</th>
-		        </tr>
-		    </thead>
+        <input type="button" value="添加" id="btn" />
+        <table border="1" cellpadding="0" cellspacing="0" id="tb">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>邮箱</th>
+                </tr>
+            </thead>
 
-		    <tbody id="tbd">
-		        <tr>
-		            <td>小黑子</td>
-		            <td>ikun@126.com</td>
-		        </tr>
-		    </tbody>
-		</table>
+            <tbody id="tbd">
+                <tr>
+                    <td>小黑子</td>
+                    <td>ikun@126.com</td>
+                </tr>
+            </tbody>
+        </table>
 
-		<script>
+        <script>
             var submit = document.getElementById('btn');
             
             submit.onclick = function () {
@@ -78,6 +78,6 @@
                 var get_email = document.getElementById('email');
                 td2.innerHTML = get_email.value;
             }
-		</script>
-	</body>
+        </script>
+    </body>
 </html>
