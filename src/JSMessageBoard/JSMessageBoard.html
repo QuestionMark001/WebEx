@@ -1,0 +1,102 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-11-16 09:02:40
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-11-17 19:33:09
+ * @FilePath: /LocalProjects/WebEx/src/JSMessageBoard/JSMessageBoard.html
+ * @Description: JS简易留言板
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>JS简易留言板</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                padding: 100px;
+            }
+
+            textarea {
+                font-size: 16px;
+            }
+
+            textarea {
+                width: 300px;
+                height: 120px;
+                border: 1px solid #ccc;
+                box-shadow: 5px 5px 10px #999;
+                outline: none;
+                resize: none;
+                border-radius: 5px;
+            }
+
+            button {
+                margin-top: 15px;
+            }
+
+            ul {
+                margin-top: 50px;
+            }
+
+            li {
+                width: 300px;
+                padding: 5px;
+                background-color: #eee;
+                font-size: 14px;
+                margin: 15px 0;
+                
+                /* 发布后的内容自动换行，防止文字过多导致超出灰色边框 */
+                word-wrap: break-word;
+            }
+
+            li a {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <h2 class="name">JS简易留言板：</h2>
+        <br/>
+        <textarea name="comment" id="comment" placeholder="请友善发言！"></textarea>
+        <br/>
+        <button>发布</button>
+        <ul></ul>
+        
+        <script>
+            // 获取元素
+            var btn=document.querySelector('button');
+            var ul=document.querySelector('ul');
+            var text=document.querySelector('textarea');
+
+            
+            // 注册事件
+	        btn.onclick = function(){
+		        if(text.value != '') {
+		            var li = document.createElement('li');
+		            li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+		            ul.insertBefore(li,ul.children[0]);
+                    var del = document.querySelectorAll('a');
+                    for (var i = 0; i < del.length; i++) {
+                        del[i].onclick = function() {
+                            ul.removeChild(this.parentNode);
+                        }
+                    }
+		        }
+                else {
+			        alert('请输入内容！');
+                }
+            }
+        </script>
+    </body>
+</html>
