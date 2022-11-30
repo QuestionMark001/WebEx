@@ -1,0 +1,32 @@
+@font-face {
+	font-family: HarmonyOS_Sans_SC_Regular;
+	src: url(./../fonts/HarmonyOS_Sans_SC_Regular.ttf);
+}
+
+.QRimg {
+    height: auto;
+    width: auto\9; /* \9适配IE浏览器 */
+    max-width: 100%;
+}
+
+body {
+    font-family: HarmonyOS_Sans_SC_Regular;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    position: absolute;
+    overflow: auto;
+}
+
+#wechat_content {
+    padding-top: 130px;
+	padding-bottom: 60px;
+    padding-left: 50px;
+    padding-right: 50px;
+    z-index: -999;
+    background-image: url(./../wechat/No1.jpg);
+    background-attachment: local;
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

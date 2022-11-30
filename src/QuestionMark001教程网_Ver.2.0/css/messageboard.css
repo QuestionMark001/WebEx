@@ -1,0 +1,46 @@
+#comment {
+    font-size: 16px;
+}
+
+#comment {
+    width: 300px;
+    height: 120px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 10px #999;
+    outline: none;
+    resize: none;
+    border-radius: 5px;
+}
+
+.comment_button {
+    margin-top: 15px;
+}
+
+.comment_ul {
+    margin-top: 50px;
+}
+
+.comment_li {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 0px #999;
+    width: 260px;
+    height: 100px;
+    padding: 5px;
+    background-color: #eee;
+    font-size: 14px;
+    margin: 15px 0;
+    
+    word-wrap: break-word;  /* 发布后的内容自动换行，防止文字过多导致超出灰色边框 */
+    overflow-y: scroll;     /* 发布后的内容加入滚动功能，防止内容竖向溢出 */
+    list-style-type: none;  /* 去掉圆点 */
+}
+
+/* 发布后的内容保留滚动功能的同时，隐藏滚动条 */
+.comment_li::-webkit-scrollbar {
+    display: none;
+}
+
+.comment_a {
+    float: right;
+}

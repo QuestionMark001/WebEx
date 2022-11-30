@@ -1,0 +1,93 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2022-06-04 09:41:50
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2022-11-30 11:16:25
+ * @FilePath: /LocalProjects/WebEx/src/QuestionMark001教程网_Ver.2.0/playlist.html
+ * @Description: 教程小网站_Ver.2.0歌单页
+ * 
+ * Copyright (c) 2022 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+        <!-- 如果安装了GCF，则让IE使用Google Chrome Frame渲染；或使用最高版本的IE内核渲染 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- 移动端适配 -->
+        <title>歌单 - QuestionMark001教程网</title>
+        <meta name="keywords" content="C,Python,Go,C#,C++,Java,HTML5,CSS,JS,NodeJs,VueJs等各种编程语言及工具的教程网站">
+        <meta name="description" content="QuestionMark001教程网">
+        <meta name="author" content="QuestionMark001-向阳菌">
+        <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+        <link rel="shortcut icon" href="./favicon.ico">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/top_button.css">
+        <script src="./js/mobile.js"></script>
+        <!-- 适配移动端menu菜单 -->
+        <link rel="stylesheet" type="text/css" href="./css/iconfontstyle.css">
+        <script src="./iconfont/iconfont.js"></script>
+        <!-- 阿里巴巴iconfont图标库，请勿擅自商用！ -->
+        <link rel="stylesheet" href="./Aplayer/APlayer.min.css">
+        <script src="./Aplayer/APlayer.min.js"></script>
+        <!-- 使用APlayer开源在线播放器 -->
+        <script src="./MetingJS/Meting.min.js"></script>
+        <!-- 使用MetingJS辅助APlayer -->
+    </head>
+    <body>
+        <div id="page_index">
+            <div class="page_header">
+                <h2 class="header_title"><a href="./index.html">QuestionMark001教程网</a></h2>
+                <div class="container" onclick="myFunction(this)">  <!-- js事件驱动 -->
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </div>
+                <ul class="header_item" id="menu_hide">
+                    <li><a href="./index.html"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home"></use></svg> 主页</a></li>
+                    <li><a href="./tutorial.html"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-pingtaijiaocheng"></use></svg> 教程</a></li>
+                    <li><a href="./about.html"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-info"></use></svg> 关于</a></li>
+                    <li><a href="./playlist.html"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-musiclist"></use></svg> 歌单</a></li>
+                    <li><a target="_blank" rel="noopener" href="https://github.com/QuestionMark001"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"></use></svg> GitHub</a></li>
+                </ul>
+            </div>
+            <div id="content">
+                <div id="page_subhead">
+                    <h2 id="subhead">
+                        <svg class="icon" id="subhead_icon" aria-hidden="true">
+                            <use xlink:href="#icon-musiclist"></use>
+                        </svg> 歌单
+                    </h2>
+                </div>
+                <div id="home_content">
+                    <h2 id="homelist_h">推荐教程</h2>
+                        <ul id="homelist_ul">
+                            <li class="html5_li"><a href="./tutorial/html5_tutorial.html">HTML5 快速开始</a></li>
+                            <li class="css_li"><a href="./tutorial/css_tutorial.html">CSS 快速开始</a></li>
+                            <li class="java_li"><a href="./tutorial/java_tutorial.html">Java 快速开始</a></li>
+                            <li class="mysql_li"><a href="./tutorial/mysql_tutorial.html">MySQL™ 8.0 安装教程</a></li>
+                        </ul>
+                </div>
+                <div id="main_body">
+                    <h3>歌单</h3>
+                    <h4>网易云音乐（NetEase CloudMusic）</h4>
+                    <p>Tips:本页面可直接播放音乐，快来试试吧！</p>
+                    <div id="aplayer-olYMXFYY" class="aplayer aplayer-tag-marker meting-tag-marker aplayer-withlrc aplayer-withlist" data-id="7264047237" data-server="netease" data-type="playlist" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#ad7a86">
+                    </div>
+                    <p class="link_style">歌单来源: <a target="_blank" rel="noopener" href="https://music.163.com/#/playlist?id=7264047237">QuestionMark001的歌单</a></p>
+                </div>
+            </div>
+            <footer id="page_footer"> <!-- <footer>标签是 HTML 5 中的新标签 -->
+                <div id="footer_wrap">
+                    <div class="copyright">某学校-计算机系-XX系-XX专业<br/>©2021 - 2022 By QuestionMark001-向阳菌</div>
+                    <a target="_blank" rel="noopener" href="https://github.com/QuestionMark001" class="myGitHub"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github"></use></svg></a>
+                </div>
+            </footer>
+            <button onclick="topFunction()" id="topBtn" title="返回顶部">返回顶部</button>
+            <script src="./js/topbutton.js"></script>
+        </div>
+    </body>
+</html>
