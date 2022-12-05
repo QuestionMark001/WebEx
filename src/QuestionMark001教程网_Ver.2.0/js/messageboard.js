@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2022-11-29 08:36:55
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2022-11-30 11:06:52
+ * @LastEditTime: 2022-12-05 20:30:01
  * @FilePath: /LocalProjects/WebEx/src/QuestionMark001教程网_Ver.2.0/js/messageboard.js
  * @Description: 留言板_Ver.2.0
  * 
@@ -10,7 +10,7 @@
  */
 
 // 获取元素
-var comment_btn=document.querySelector('.comment_button');
+var comment_btn = document.querySelector('.comment_button');
 var comment_ul = document.querySelector('.comment_ul');
 var comment_text = document.querySelector('#comment');
 
