@@ -1,0 +1,14 @@
+/* 链接样式 */
+
+a:link, a:visited {
+    color: #3399CC;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #000;
+}

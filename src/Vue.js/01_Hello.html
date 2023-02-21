@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2023-02-20 17:58:44
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-02-21 09:02:19
+ * @LastEditTime: 2023-02-21 09:29:08
  * @FilePath: /LocalProjects/WebEx/src/Vue.js/01_Hello.html
  * @Description: Hello, Vue.js
  * 
@@ -16,6 +16,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
         <script src="./js/vue@2.7.14/vue.js"></script>
         <title>Hello, Vue.js</title>
     </head>
@@ -29,8 +30,9 @@
             <h1>The <span v-html="adj"></span> JavaScript Framework</h1>
             
             <!-- "v-bind:" （注意 ":" 不能丢）可用来绑定一个或多个属性 -->
-            <a v-bind:href="vue_new">Vue.js (New)</a><br />
-            <a :href="vue_2">Vue.js (2.x)</a> <!-- "v-bind:" 也可写为 ":" -->
+            <a v-bind:href="url.vue_new">Vue.js (New)</a><br />
+            <a :href="url.vue_2">Vue.js (2.x)</a><br /> <!-- "v-bind:" 也可写为 ":" -->
+            <a :href="url.upper_case.toUpperCase()">Open F12, URL is Upper Case.</a>
         </div>
 
         <script>
@@ -43,8 +45,11 @@
                 data: {
                     name: 'Vue.js',
                     adj: 'Progressive',
-                    vue_new: 'https://vuejs.org',
-                    vue_2: 'https://v2.vuejs.org'
+                    url: {
+                        vue_new: 'https://vuejs.org',
+                        vue_2: 'https://v2.vuejs.org',
+                        upper_case: 'https://vuejs.org/guide/introduction.html'
+                    }
                 }
             });
         </script>
