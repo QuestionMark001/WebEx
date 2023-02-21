@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2023-02-20 17:58:44
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-02-20 18:53:18
+ * @LastEditTime: 2023-02-21 09:02:19
  * @FilePath: /LocalProjects/WebEx/src/Vue.js/01_Hello.html
  * @Description: Hello, Vue.js
  * 
@@ -27,6 +27,10 @@
             <h1>Hello, {{name}}</h1>
             <!-- 模板语法：原始 HTML（Raw HTML）（v-html 属性） -->
             <h1>The <span v-html="adj"></span> JavaScript Framework</h1>
+            
+            <!-- "v-bind:" （注意 ":" 不能丢）可用来绑定一个或多个属性 -->
+            <a v-bind:href="vue_new">Vue.js (New)</a><br />
+            <a :href="vue_2">Vue.js (2.x)</a> <!-- "v-bind:" 也可写为 ":" -->
         </div>
 
         <script>
@@ -38,7 +42,9 @@
                 // data 用来存储数据，供 el 所指定的容器去使用
                 data: {
                     name: 'Vue.js',
-                    adj: 'Progressive'
+                    adj: 'Progressive',
+                    vue_new: 'https://vuejs.org',
+                    vue_2: 'https://v2.vuejs.org'
                 }
             });
         </script>
