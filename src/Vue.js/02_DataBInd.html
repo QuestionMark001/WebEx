@@ -1,0 +1,47 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-02-23 12:34:10
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-02-23 18:58:39
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/02_DataBInd.html
+ * @Description: Vue.js Data Bind
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>Data Bind</title>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>单向数据绑定</h2>
+            <!-- data ==> v-bind ==> value ✔ -->
+            <!-- value ==> v-bind ==> data ❌ -->
+            <input type="text" v-bind:value="single">
+            <h2>双向数据绑定</h2>
+            <!-- data ==> v-model ==> value ✔ -->
+            <!-- value ==> v-model ==> data ✔ -->
+            <!-- 注：v-model 只能应用在表单类元素上！ -->
+            <input type="text" v-model:value="two_way">
+        </div>
+        
+        <script>
+            const vm = new Vue({
+                el: '#root',
+                data: {
+                    single: '单向数据绑定',
+                    two_way: '双向数据绑定'
+                }
+            });
+        </script>
+    </body>
+</html>
