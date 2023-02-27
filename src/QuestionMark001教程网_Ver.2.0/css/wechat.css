@@ -1,6 +1,6 @@
 @font-face {
-	font-family: HarmonyOS_Sans_SC_Regular;
-	src: url(./../fonts/HarmonyOS_Sans_SC_Regular.ttf);
+    font-family: HarmonyOS_Sans_SC_Regular;
+    src: url(./../fonts/HarmonyOS_Sans_SC_Regular.ttf);
 }
 
 .QRimg {
@@ -20,7 +20,7 @@ body {
 
 #wechat_content {
     padding-top: 130px;
-	padding-bottom: 60px;
+    padding-bottom: 60px;
     padding-left: 50px;
     padding-right: 50px;
     z-index: -999;
