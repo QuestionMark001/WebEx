@@ -1,0 +1,48 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-03-02 13:35:16
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-03-02 14:31:47
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/03_methods.html
+ * @Description: methods 方法
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>methods 方法</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <button @click="doChange">点我更改名字！！！</button> <!-- （语法糖）"@" 表示 "v-on" -->
+            <h3>{{name}}</h3>
+        </div>
+        
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    name: '张三',
+                },
+                methods: {
+                    doChange: function () {
+                        this.name = '李狗蛋'
+                        // Vue 3 中无法在以下 data 函数中使用 this
+                        // data() {
+                        //     return{}
+                        // }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
