@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2023-02-23 12:34:10
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-02-23 18:58:39
+ * @LastEditTime: 2023-03-06 20:05:37
  * @FilePath: /LocalProjects/WebEx/src/Vue.js/02_DataBInd.html
  * @Description: Vue.js Data Bind
  * 
@@ -22,24 +22,70 @@
     </head>
 
     <body>
-        <div id="root">
+        <div id="app">
             <h2>单向数据绑定</h2>
             <!-- data ==> v-bind ==> value ✔ -->
             <!-- value ==> v-bind ==> data ❌ -->
+            <!-- 注：如果浏览器安装了Vue扩展， -->
+            <!-- 请在Vue扩展界面修改 data 数据来查看单向绑定与双向绑定的区别 -->
             <input type="text" v-bind:value="single">
+
+            <hr />
+            
             <h2>双向数据绑定</h2>
             <!-- data ==> v-model ==> value ✔ -->
             <!-- value ==> v-model ==> data ✔ -->
             <!-- 注：v-model 只能应用在表单类元素上！ -->
             <input type="text" v-model:value="two_way">
+            <h3>{{two_way}}</h3>
+            <br />
+
+            <h3>你选择了：{{gender}}</h3>
+            <label for="male">
+                <input type="radio" name="male" id="male" value="男" v-model="gender">男
+            </label>
+            <label for="female">
+                <input type="radio" name="female" id="female" value="女" v-model="gender">女
+            </label>
+            <label for="other">
+                <input type="radio" name="other" id="other" value="其他" v-model="gender">其他
+            </label>
+            <br />
+
+            <label for="agreement">
+                <h3>是否同意本协议？</h3>
+                <input type="checkbox" name="" id="agreement" v-model="isagree">同意协议
+            </label>
+            <h4>你的选择是：{{isagree}}</h4>
+            <button :disabled="!isagree">下一步</button>
+            <br />
+            
+            <h3>你选择的爱好是：{{hobbies}}</h3>
+            <input type="checkbox" name="" value="唱" v-model="hobbies">唱
+            <input type="checkbox" name="" value="跳" v-model="hobbies">跳
+            <input type="checkbox" name="" value="Rap" v-model="hobbies">Rap
+            <input type="checkbox" name="" value="篮球" v-model="hobbies">篮球
+            <br />
+
+            <h3>你喜欢的水果是：{{fruit}}</h3>
+            <select name="fruits" v-model="fruit">
+                <option value="🍍">🍍</option>
+                <option value="🍉">🍉</option>
+                <option value="🍌">🍌</option>
+                <option value="🍎">🍎</option>
+            </select>
         </div>
         
         <script>
             const vm = new Vue({
-                el: '#root',
+                el: '#app',
                 data: {
                     single: '单向数据绑定',
-                    two_way: '双向数据绑定'
+                    two_way: '双向数据绑定',
+                    gender: '',
+                    isagree: false,
+                    hobbies: [],
+                    fruit: []
                 }
             });
         </script>
