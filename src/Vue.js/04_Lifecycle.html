@@ -1,0 +1,48 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-03-02 14:07:12
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-03-06 09:09:00
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/04_Lifecycle.html
+ * @Description: Vue.js 生命周期
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>Vue.js 生命周期示例</title>
+    </head>
+
+    <body>
+        <h2 id="app">created 与 mounted 生命周期示例</h2>
+        <h2>按下 F12 查看</h2>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    num: 10
+                },
+
+                created: function() {
+                    console.log('created 在组件实例处理完所有与状态相关的选项后调用：');
+                    console.log(this.num); // 10
+                    console.log(this.$el); // undefined
+                },
+                mounted: function() {
+                    console.log('mounted 在组件被挂载之后调用：');
+                    console.log(this.num); // 10
+                    console.log(this.$el); // <h2 id="app">created 与 mounted 生命周期示例</h2>
+                }
+            });
+        </script>
+    </body>
+</html>
