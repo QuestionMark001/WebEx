@@ -1,0 +1,51 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-03-09 13:40:52
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-03-09 14:09:29
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/05_computed.html
+ * @Description: computed 计算属性
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>computed 计算属性</title>
+    </head>
+
+    <body>
+        <h2>Vue.js computed 计算属性</h2>
+        <div id="app">
+            <!-- data 只有再被更改时，computed 才会被重新计算 -->
+            <input type="text" v-model="hello">
+            <h3>{{hello}}</h3>
+            <h3>反转：</h3>
+            <h3>{{reverse}}</h3>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    hello: 'Hello,world!'
+                },
+                // computed 计算属性用于处理 data 中的数据
+                computed: {
+                    // 在这里 reverse 被当作一个类似于 变量 的存在，
+                    // 因此可直接被引用到 插值表达式 {{}} 中
+                    reverse: function() {
+                        return this.hello.split('').reverse().join('');
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

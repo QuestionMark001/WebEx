@@ -1,0 +1,72 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-03-09 14:01:07
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-03-09 14:43:24
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/06_watch.html
+ * @Description: watch 监听属性
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>watch 监听属性</title>
+    </head>
+
+    <body>
+        <h2>Vue.js watch 监听属性</h2>
+        <div id="app">
+            <!-- watch 监听属性 监听 数据状态 的变化 -->
+            <input type="text" v-model="age">
+            <h3>年龄：{{age}}</h3>
+            <hr />
+            千米：<input type="text" v-model="kilometers"><br />
+            米：<input type="text" v-model="meters">
+            <p id="info"></p>
+        </div>
+
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    age: 20,
+
+                    kilometers: 0,
+                    meters: 0
+                },
+
+                watch: {
+                    // 监听 age 数据
+                    age: function() {
+                        alert("年龄已被改变");
+                    },
+                    
+                    // 监听 kilometers 属性
+                    kilometers: function (val) {
+                        this.kilometers = val;
+                        this.meters = this.kilometers * 1000;
+                    },
+                    // 监听 meters 属性
+                    meters: function (val) {
+                        this.meters = val;
+                        this.kilometers = this.meters / 1000;
+                    }
+                }
+            });
+
+            // vm.$watch( expOrFn, callback, [options] )
+            // $watch 是 Vue.js 的 API 提供的一个方法，用来监听变量的数据变化
+            vm.$watch('kilometers', function (newVal, oldVal) {
+                document.getElementById('info').innerHTML = '修改前：' + oldVal + '，修改后：' + newVal;
+            })
+        </script>
+    </body>
+</html>
