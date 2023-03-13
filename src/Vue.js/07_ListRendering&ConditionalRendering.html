@@ -1,0 +1,79 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-03-13 08:54:47
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-03-13 10:34:57
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/07_ListRendering&ConditionalRendering.html
+ * @Description: List Rendering & Conditional Rendering 列表渲染与条件渲染
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
+        <link rel="stylesheet" href="./css/table.css">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>List Rendering & Conditional Rendering 列表渲染与条件渲染</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <h2>List Rendering 列表渲染</h2>
+            <h3>v-for 基础用法</h3>
+            <ul>
+                <li v-for="(item, name, index) of fruits" :key="index">index[{{index}}], {{name}}: {{item}}</li>
+            </ul>
+            
+            <h3>v-for 整数迭代</h3>
+            <li v-for="count of 10">
+                这是第{{count}}个数
+            </li>
+
+            <h3>v-for 对象数组循环</h3>
+            <table>
+                <thead>
+                    <th>名称</th>
+                    <th>动作</th>
+                </thead>
+                <tbody>
+                    <tr v-for="item in ikun">
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr />
+            <h2>Conditional Rendering 条件渲染</h2>
+            <!-- TODO: 条件渲染代码将在下一次 Commit 时更新！！！ -->
+        </div>
+        
+        <script>
+            const vm = new Vue({
+                el: '#app',
+                data: {
+                    // fruits 是一个 对象
+                    fruits: {
+                        pineapple: '🍍',
+                        watermelon: '🍉',
+                        banana: '🍌',
+                        apple: '🍎'
+                    },
+
+                    // ikun 是一个 对象数组
+                    ikun: [
+                        {name: '唱', description: '唱《只因你太美》'},
+                        {name: '跳', description: '跳《只因你太美》'},
+                        {name: 'Rap', description: '《只因你太美》说唱部分'},
+                        {name: '🏀', description: '《只因你太美》🏀表演部分'}
+                    ]
+                }
+            });
+        </script>
+    </body>
+</html>
