@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2023-03-13 08:54:47
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-03-13 10:34:57
+ * @LastEditTime: 2023-04-10 08:53:03
  * @FilePath: /LocalProjects/WebEx/src/Vue.js/07_ListRendering&ConditionalRendering.html
  * @Description: List Rendering & Conditional Rendering 列表渲染与条件渲染
  * 
@@ -48,9 +48,19 @@
                     </tr>
                 </tbody>
             </table>
+
             <hr />
+
             <h2>Conditional Rendering 条件渲染</h2>
-            <!-- TODO: 条件渲染代码将在下一次 Commit 时更新！！！ -->
+            <!-- v-if, v-else, v-else-if 要紧接着使用，中间没有其它元素，不然显示不出来会报错 -->
+            <!-- if type === 'A' -->
+            <p v-if="type === 'A'"></p>
+            <!-- if type === 'B' -->
+            <p v-else-if="type === 'B'"></p>
+            <!-- if type === 'C' -->
+            <p v-else-if="type === 'C'"></p>
+            <!-- if type === [Oters Data] -->
+            <p v-else>type NOT A/B/C</p>
         </div>
         
         <script>
@@ -71,7 +81,12 @@
                         {name: '跳', description: '跳《只因你太美》'},
                         {name: 'Rap', description: '《只因你太美》说唱部分'},
                         {name: '🏀', description: '《只因你太美》🏀表演部分'}
-                    ]
+                    ],
+
+                    type: ''
+                    // type: 'A'
+                    // type: 'B'
+                    // type: 'C'
                 }
             });
         </script>
