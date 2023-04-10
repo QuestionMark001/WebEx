@@ -1,0 +1,42 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-04-10 09:15:22
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-04-10 10:13:29
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/09_ComponentsBasics​.html
+ * @Description: Components Basics 组件基础
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <title>Components Basics 组件基础</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>Components Basics 组件基础</h2>
+            <button-counter></button-counter>
+        </div>
+
+        <script>
+            Vue.component('button-counter', {
+                data() {
+                    return {
+                        num: 0
+                    }
+                },
+                template: `<button v-on:click="num++">按钮被点击了{{num}}次</button>`
+            })
+
+            const vm = new Vue({
+                el: '#app'
+            });
+        </script>
+    </body>
+</html>
