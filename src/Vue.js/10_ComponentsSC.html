@@ -1,0 +1,139 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-04-12 13:33:31
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-04-12 19:02:58
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/10_ComponentsSC.html
+ * @Description: Components Simple Case 组件的简单案例
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="./js/vue@2.7.14/vue.js"></script>
+        <script src="./js/axios@1.3.5/axios.min.js"></script>
+        <title>选择您喜欢的修狗</title>
+    </head>
+    <body>
+        <h2>点击修狗图片下方的名字，选择您喜欢的修狗：</h2>
+        <span>P.S. 请使用“Live Server”插件启动本页面！！！</span><br />
+        <span>P.S. Please use "Live Server" extension to launch the page!!!</span><br />
+        <hr />
+        <div id="app">
+            <dog @dog="getDogName" v-for="(obj, index) in dogsArr" :key="index" :dogobj="obj"></dog>
+            <div class="div_ul">
+                <h4>您喜欢的修狗如下：</h4>
+                <ul>
+                    <li v-for="(name, index) in dogsName" :key="index">{{name}}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- dog 子组件代码 -->
+        <template id="tp_dog">
+            <div class="div_dog">
+                <img :src="dogobj.dogImgUrl" alt="">
+                <p class="dog_name" @click="btn($event)" :style="{background: colorStr}">{{dogobj.dogName}}</p>
+            </div>
+        </template>
+
+        <script>
+            // 定义子组件名称为 dog
+            Vue.component('dog', {
+                template: '#tp_dog',
+
+                data() {
+                    return {
+                        colorStr: '',
+                        dogName: ''
+                    }
+                },
+
+                // props
+                props: {
+                    dogobj: Object
+                },
+
+                mounted() {
+                    this.dogName = this.dogobj.dogName;
+                },
+
+                methods: {
+                    getColorStr() {
+                        let r = Math.floor(Math.random() * 256);
+                        let g = Math.floor(Math.random() * 256);
+                        let b = Math.floor(Math.random() * 256);
+
+                        // ES6 写法返回 RGB 值
+                        return `rgb(${r}, ${g}, ${b})`;
+                    },
+
+                    btn(e) {
+                        let color = this.getColorStr();
+                        this.colorStr = color;
+
+                        let name = e.target.innerHTML;
+                        // ！注意：使用 this.$emit('子组件名', 形参) 方法让子组件向父组件传值
+                        this.$emit('dog', name);
+                    }
+                }
+            })
+
+            const vm = new Vue({
+                el: '#app',
+
+                data() {
+                    return {
+                        dogsArr: [],
+                        dogsName: []
+                    }
+                },
+                
+                mounted() {
+                    axios.get('./json/dogsList.json').then((res) => {
+                        this.dogsArr = res.data;
+                        console.log(this.dogsArr);
+                    });
+                },
+
+                methods: {
+                    // 接收从子组件传过来的形参 name
+                    getDogName(name) {
+                        this.dogsName.push(name);
+                        // console.log(name);
+                    }
+                }
+            });
+        </script>
+
+        <!-- scoped 可防止CSS全局污染 -->
+        <style scoped>
+            .div_dog {
+	            width: 200px;
+	            border: 1px solid black;
+	            text-align: center;
+	            float: left;
+            }
+            .div_dog img {
+	            width: 100%;
+	            height: 200px;
+            }
+            .dog_name {
+                cursor: pointer;
+                user-select: none;
+            }
+            .div_ul {
+                display: flex;
+                flex-direction: column;
+            }
+            .div_ul h4 {
+                margin-left: 10px;
+            }
+        </style>
+    </body>
+</html>

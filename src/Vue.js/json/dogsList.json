@@ -1,0 +1,26 @@
+[
+    {
+    "dogImgUrl": "./img/dogs/1.png",
+    "dogName": "博美"
+    },
+    {
+    "dogImgUrl": "./img/dogs/2.png",
+    "dogName": "泰迪"
+    },
+    {
+    "dogImgUrl": "./img/dogs/3.png",
+    "dogName": "⾦⽑"
+    },
+    {
+    "dogImgUrl": "./img/dogs/4.png",
+    "dogName": "哈⼠奇"
+    },
+    {
+    "dogImgUrl": "./img/dogs/5.png",
+    "dogName": "阿拉斯加"
+    },
+    {
+    "dogImgUrl": "./img/dogs/6.png",
+    "dogName": "萨摩耶"
+    }
+]
