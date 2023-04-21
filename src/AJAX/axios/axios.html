@@ -1,0 +1,48 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-04-21 14:35:42
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-04-21 15:18:06
+ * @FilePath: /LocalProjects/WebEx/src/AJAX/axios/axios.html
+ * @Description: axios Accept Page axios接收页面
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>axios</title>
+        <style>
+            #request {
+                font-size: large;
+                font-weight: bold;
+            }
+        </style>
+        <script src="./lib/axios@1.3.5/axios.min.js"></script>
+        <script>
+            axios.get('http://localhost:8080/news').then((res) => {
+                let resText = [];
+                resText = res.data;
+                // console.log(res);
+                // console.log(resText);
+
+                document.getElementById('request').innerHTML = 'Request OK';
+                document.getElementById('content').innerHTML = JSON.stringify(resText);
+            }).catch((error) => {
+                document.getElementById('request').innerHTML = 'Request Failure';
+            });
+        </script>
+    </head>
+
+    <body>
+        <div id="request"></div><br />
+        <div id="content"></div>
+        <hr />
+        <p>Please use VSCode Live Server Extension to run the HTML file!!!</p>
+        <p>请使用 VSCode Live Server 插件访问此页面！！！</p>
+    </body>
+</html>
