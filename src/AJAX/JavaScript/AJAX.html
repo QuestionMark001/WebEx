@@ -1,0 +1,71 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2023-04-21 12:15:21
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2023-04-21 14:27:17
+ * @FilePath: /LocalProjects/WebEx/src/AJAX/JavaScript/AJAX.html
+ * @Description: AJAX Accept Page AJAX接收页面
+ * 
+ * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!-- Please use Live Server Extension to run the HTML file!!! -->
+<!-- 请使用 Live Server 插件访问此页面！！！ -->
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS AJAX</title>
+        <style>
+            #request {
+                font-size: large;
+                font-weight: bold;
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                // 初始化请求对象
+                if (window.XMLHttpRequest) {
+                    // 现代浏览器 或 IE 7+
+                    var httpRequest = new XMLHttpRequest();
+                } else if(window.ActiveXObject) {
+                    // IE 6 或 古早浏览器
+                    var httpRequest = new ActiveXObject('Microsoft.XMLHTTP');
+                }
+
+                // 初始化请求 （true 代表异步执行操作，默认为 true）
+                httpRequest.open('GET', 'http://localhost:8080/news', true);
+
+                // 发送请求
+                httpRequest.send();
+
+                // 在 onreadystatechange 事件中，我们规定当服务器响应已做好被处理的准备时所执行的任务。
+                httpRequest.onreadystatechange = function () {
+                    console.log(httpRequest.readyState);
+                    console.log(httpRequest.status);
+                    if (httpRequest.readyState == 4 && httpRequest.status == 200) {
+                        // 请求成功
+                        document.getElementById('request').innerHTML = 'Request OK';
+
+                        var resText = httpRequest.responseText;
+                        document.getElementById('content').innerHTML = resText;
+                    } else {
+                        // 请求失败
+                        document.getElementById('request').innerHTML = 'Request Failure';
+                    }
+                };
+            };
+        </script>
+    </head>
+
+    <body>
+        <div id="request"></div><br />
+        <div id="content"></div>
+        <hr />
+        <p>Please use VSCode Live Server Extension to run the HTML file!!!</p>
+        <p>请使用 VSCode Live Server 插件访问此页面！！！</p>
+    </body>
+</html>
