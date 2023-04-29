@@ -1,0 +1,22 @@
+@import url(./button.css);
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a:link, a:visited {
+    color: #3399CC;
+    text-decoration: none;
+}
+a:hover {text-decoration: underline;}
+a:active {color: #000;}
+
+#app {
+    display: flex;
+    justify-content: center;
+}
+
+#div_btn {
+    margin: 10px;
+}
