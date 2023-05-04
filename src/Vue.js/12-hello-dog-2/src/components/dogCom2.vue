@@ -2,9 +2,9 @@
  * @Author: QuestionMark001
  * @Date: 2023-04-27 14:48:30
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-05-04 14:19:39
- * @FilePath: /12-hello-dog-2/src/components/dogCom2.vue
- * @Description: 
+ * @LastEditTime: 2023-05-04 15:31:27
+ * @FilePath: /LocalProjects/WebEx/src/Vue.js/12-hello-dog-2/src/components/dogCom2.vue
+ * @Description: dogCom2.vue
  * 
  * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
 -->
