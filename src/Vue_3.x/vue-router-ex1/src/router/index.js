@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2023-05-15 13:44:22
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2023-05-22 09:24:37
+ * @LastEditTime: 2023-05-22 09:33:33
  * @FilePath: /LocalProjects/WebEx/src/Vue_3.x/vue-router-ex1/src/router/index.js
  * @Description: 路由配置
  * 
@@ -38,4 +38,4 @@ const router = createRouter({
   ]
 })
 
-export default router
+export default router // 暴露 'router' 对象
