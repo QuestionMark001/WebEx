@@ -1,0 +1,14 @@
+hr {
+    margin-top: 10px;
+}
+
+.tip {
+    color: royalblue;
+    display: inline-block;
+    margin: 5px;
+}
+
+#div_cell {
+    background: #f7f8fa;
+    width: 500px;
+}
