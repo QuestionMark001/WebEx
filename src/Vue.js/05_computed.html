@@ -39,8 +39,8 @@
                 },
                 // computed 计算属性用于处理 data 中的数据
                 computed: {
-                    // 在这里 reverse 被当作一个类似于 变量 的存在，
-                    // 因此可直接被引用到 插值表达式 {{}} 中
+                    // 在这里 reverse 只是被当作属性，不是函数！！！
+                    // 因此可直接被引用到 插值表达式 {{}} 中（引用时不加括号！！！）
                     reverse: function() {
                         return this.hello.split('').reverse().join('');
                     }
