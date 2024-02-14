@@ -2,9 +2,9 @@
  * @Author: QuestionMark001
  * @Date: 2023-03-09 14:01:07
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-02-14 21:04:16
+ * @LastEditTime: 2024-02-14 22:53:27
  * @FilePath: \LocalProjects\WebEx\src\Vue.js\06_watch.html
- * @Description: watch 监听属性
+ * @Description: watch 监视属性
  * 
  * Copyright (c) 2023 by QuestionMark001, All Rights Reserved. 
 -->
@@ -18,18 +18,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./css/linkstyle.css">
         <script src="./js/vue@2.7.14/vue.js"></script>
-        <title>watch 监听属性</title>
+        <title>watch 监视属性</title>
     </head>
 
     <body>
-        <h2>Vue.js watch 监听属性</h2>
+        <h2>Vue.js watch 监视属性</h2>
         <div id="app">
-            <!-- watch 监听属性 监听 数据状态 的变化 -->
+            <!-- watch 监视属性 监视 数据状态 的变化 -->
             <input type="text" v-model="age">
             <h3>年龄：{{age}}</h3>
             <hr />
-            千米：<input type="text" v-model="kilometers"><br />
-            米：<input type="text" v-model="meters">
+            <h3>千米转米</h3>
+            <button @click="km_to_m">转换</button><br /><br />
+            千米：<input type="text" v-model="km_m.kilometers"><br />
+            米：<span>{{km_m.meters}} 米</span>
             <p id="info"></p>
         </div>
 
@@ -38,36 +40,47 @@
                 el: '#app',
                 data: {
                     age: 20,
-
-                    kilometers: 0,
-                    meters: 0
+                    km_m: {
+                        kilometers: 0,
+                        meters: 0
+                    }
                 },
 
+                methods: {
+                    // 千米转米
+                    km_to_m() {
+                        this.km_m.meters = this.km_m.kilometers * 1000;
+                    }
+                },
                 watch: {
-                    // 以下的 age、kilometers、meters 只是被当作属性，也不是函数！！！
-                    // 监听 age 数据
-                    age: function() {
-                        alert("年龄已被改变");
+                    // 监视 age 数据
+                    age: {
+                        immediate: true, // 初始化时先调用一次 handler
+                        handler(newVal, oldVal) {
+                            console.log('年龄已改变','新年龄：'+newVal+' 旧年龄：'+oldVal);
+                        }
                     },
-                    
-                    // 监听 kilometers 属性
-                    kilometers: function (val) {
-                        this.kilometers = val;
-                        this.meters = this.kilometers * 1000;
-                    },
-                    // 监听 meters 属性
-                    meters: function (val) {
-                        this.meters = val;
-                        this.kilometers = this.meters / 1000;
+                    // 只监视 meters 数据
+                    'km_m.meters': { // 如若启用深度监视，这行要写成 'km_m'...
+                        // deep: true, // 深度监视，用于监视 data 中 km_m 下的所有数据，在这里不启用
+                        handler(newVal, oldVal) {
+                            document.getElementById('info').innerHTML= '转换成功！';
+                            console.log('转换成功！'+'结果为：'+newVal+'，上一次结果：'+oldVal);
+                        }
                     }
                 }
             });
 
             // vm.$watch( expOrFn, callback, [options] )
-            // $watch 是 Vue.js 的 API 提供的一个方法，用来监听变量的数据变化
-            vm.$watch('kilometers', function (newVal, oldVal) {
-                document.getElementById('info').innerHTML = '修改前：' + oldVal + '，修改后：' + newVal;
-            })
+            // $watch 是 Vue.js 的 API 提供的一个方法，用来监视变量的数据变化
+            // 只监视 meters 数据
+            // vm.$watch('km_m.meters', { // 如若启用深度监视，这行要写成 'km_m'...
+            //     // deep: true, // 深度监视，用于监视 data 中 km_m 下的所有数据，在这里不启用
+            //     handler(newVal, oldVal) {
+            //         document.getElementById('info').innerHTML= '转换成功！';
+            //         console.log('转换成功！'+'结果为：'+newVal+'，上一次结果：'+oldVal);
+            //     }
+            // })
         </script>
     </body>
 </html>
