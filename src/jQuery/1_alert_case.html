@@ -1,0 +1,46 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-20 16:02:48
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-20 16:26:33
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\1_alert_case.html
+ * @Description: alert 简单案例
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alert 简单案例</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <!-- 原生js -->
+    <script>
+        window.onload = function () {
+            var btn1 = document.getElementById('btn1');
+            btn1.onclick = function () {
+                var inputJs = document.getElementById('input1').value;
+                alert(inputJs);
+            };
+        };
+    </script>
+    <!-- jQuery实现 -->
+    <script>
+        $(function () {
+            $('#btn2').click(function () {
+                var inputJquery = $('#input1').val();
+                alert(inputJquery);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="text" id="input1">
+    <button id="btn1">确定（js原生）</button>
+    <button id="btn2">确定（jQuery）</button>
+</body>
+</html>
