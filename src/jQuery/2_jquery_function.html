@@ -1,0 +1,63 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-20 20:36:08
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-20 22:14:40
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\2_jquery_function.html
+ * @Description: jQuery 核心函数的使用
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 函数的使用</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+        /* TODO:
+        *需求1. 点击按钮: 显示按钮的文本, 显示一个新的输入框
+        *需求2. 遍历输出数组中所有元素值
+        *需求3. 去掉"  my atguigu  "两端的空格
+        **/
+        // 需求1：
+        $(function () {
+            $('#btn').click(function () {
+                alert($(this).html()); // this 外面要加 $() ！！！
+                // console.log($(this),typeof $(this)); // 输出：
+                // jQuery.fn.init {0: button#btn, length: 1} 'object'
+                $('<input type="text" name="msgxxx"/><br/>').appendTo('div');
+            });
+        });
+        // 需求2：
+        var arr = ['唱', '跳', 'Rap', '🏀'];
+        $.each(arr, function (index, item) {
+            console.log(index, item);
+        });
+        // 需求3：
+        console.log($.trim('  my atguigu  '));
+    </script>
+</head>
+
+<body>
+    <div>
+        <button id="btn">测试</button>
+        <br/>
+        <input type="text" name="msg1"/><br/>
+        <input type="text" name="msg2"/><br/>
+    </div>
+    <!--    
+    1. 作为一般函数调用: $(param)
+        1). 参数为函数 : 当DOM加载完成后，执行此回调函数
+        2). 参数为选择器字符串: 查找所有匹配的标签, 并将它们封装成jQuery对象
+        3). 参数为DOM对象: 将DOM对象封装成jQuery对象
+        4). 参数为html标签字符串 (用得少): 创建标签对象并封装成jQuery对象
+    2. 作为对象使用: $.xxx()
+        1). $.each() : 隐式遍历数组
+        2). $.trim() : 去除两端的空格
+    -->
+</body>
+</html>
