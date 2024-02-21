@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-02-20 22:27:15
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-02-20 22:35:10
+ * @LastEditTime: 2024-02-21 20:54:36
  * @FilePath: \LocalProjects\WebEx\src\jQuery\3_jquery_object.html
  * @Description: jQuery 对象的使用
  * 
@@ -25,7 +25,6 @@
          *需求3. 输出所有button标签的文本
          *需求4. 输出'测试三'按钮是所有按钮中的第几个
          */
-
     </script>
 </head>
 
@@ -36,5 +35,30 @@
         <button id="btn3">测试三</button>
         <button>测试四</button>
     </div>
+    <script>
+        var $btns = $('button');
+        var $btn3 = $('#btn3');
+        // 需求1：
+        console.log($btns.length);
+        console.log('----------');
+        // 需求2：
+        console.log($($btns.get(1)).html());
+        // console.log($($btn[1]).html());
+        console.log('----------');
+        // 需求3：
+        $btns.each(function (index, elem) {
+            console.log(index, $(elem).html());
+        });
+        console.log('----------');
+        // 需求4：
+        console.log($btn3.index());
+    </script>
+    <!--
+    基本行为：
+        length：包含的 DOM 元素个数（size()方法自从1.8版本开始废弃，1.8/1.8+版本改用 length）
+        [index]/get(index)：得到对应位置的 DOM 元素
+        each()：遍历包含的所有 DOM 元素
+        index()：得到在所在兄弟元素中的下标
+    -->
 </body>
 </html>
