@@ -1,0 +1,97 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-22 15:56:47
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-22 21:56:54
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\6_filter_selector.html
+ * @Description: jQuery 的过滤选择器
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 的过滤选择器</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        img {
+            height: 50%;
+            width: 50%;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1" class="box">class为box的div1</div>
+    <div id="div2" class="box">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br/>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two">BBBBB</li>
+        <li style="display:none">我本来是隐藏的</li>
+    </ul>
+    <hr/>
+    <h4>需求4中 $('li:gt(0):lt(2)') 的执行流程：</h4>
+    <img src="./img/6_filter_selector.drawio.png" alt="需求4执行流程">
+    <script>
+        // TODO:
+        /*
+         *需求(将选择的元素背景标红):
+         *1. 选择第一个div
+         *2. 选择最后一个class为box的元素
+         *3. 选择所有class属性不为box的div
+         *4. 选择第二个和第三个li元素
+         *5. 选择内容为BBBBB的li
+         *6. 选择隐藏的li
+         *7. 选择有title属性的li元素
+         *8. 选择所有属性title为hello的li元素
+         */
+        // 需求1：
+        // $('div:first').css('background', 'red');
+        // 需求2：
+        // $('.box:last').css('background', 'red');
+        // 需求3：
+        // $('div:not(".box")').css('background', 'red');
+        // 需求4(即下标为1和2的li元素)
+        // ( $('li:gt(0):lt(2)') 代码的详细执行过程在 ./img/6_filter_selector.drawio.png 下)：
+        // $('li:gt(0):lt(2)').css('background', 'red');
+
+        // 仅用于验证$('li:gt(0):lt(2)')过程的测试代码：
+        /*
+         * $('li').each(function (index, elem) {
+         *    console.log(index, elem) 
+         * });
+         * console.log('--------------------------');
+         * $('li:gt(0)').each(function (index, elem) {
+         *    console.log(index, elem) 
+         * });
+         * console.log('--------------------------');
+         * $('li:gt(0):lt(2)').each(function (index, elem) {
+         *    console.log(index, elem) 
+         * });
+         */
+
+        // 需求5：
+        // $('li:contains("BBBBB")').css('background', 'red');
+        // 需求6：
+        // $('li:hidden').css({
+        //     'display': '',
+        //     'background': 'red'
+        // }); // 使用JSON配置多个CSS样式
+        // 需求7：
+        // $('li[title]').css('background', 'red');
+        // 需求8：
+        // $('li[title="hello"]').css('background', 'red');
+    </script>
+</body>
+</html>
