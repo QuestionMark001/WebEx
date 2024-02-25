@@ -1,0 +1,102 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-25 12:26:14
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-25 19:17:10
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\9_tool_method.html
+ * @Description: jQuery 的工具方法
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 的工具方法</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <h3>Please enter F12.</h3>
+    <!--
+    TODO:
+    1. $.each(object, [callback]): 遍历数组或对象中的数据
+    2. $.trim(str): 去除字符串两边的空格
+    3. $.type(obj): 得到数据的类型
+    4. $.isArray(obj): 判断是否是数组
+    5. $.isFunction(obj): 判断是否是函数
+
+    （已废弃）jQuery 3.0+已废弃的方法：
+    $.parseJSON(json) : 解析json字符串转换为js对象/数组
+    （代替方案）可使用以下 原生js语句 代替：
+    JSON.parse(jsonString)   json字符串 -> js对象/数组
+    JSON.stringify(jsObj/jsArr)  js对象/数组 -> json字符串
+    -->
+    <script>
+        // 1. $.each(): 遍历数组或对象中的数据
+        // 1) 遍历数组
+        console.log('-- 1. 1) --');
+        var arr = ['唱', '跳', 'Rap', '🏀'];
+        $.each(arr, function (index, elem) {
+            console.log(index, elem);
+        });
+        // 2) 遍历对象
+        console.log('-- 1. 2) --');
+        var obj = {
+            'name': 'ikun',
+            'age': 21
+        };
+        $.each(obj, function (key, val) {
+            console.log(key, val);
+        });
+        
+        // 2. $.trim(): 去除字符串两边的空格
+        console.log('-- 2. --');
+        var str = '    小黑子蒸虾头 ';
+        console.log($.trim(str));
+
+        // 3. $.type(obj): 得到数据的类型
+        console.log('-- 3. --');
+        console.log($.type($));
+        console.log($.type(true));
+        console.log($.type(1145141919810n));
+
+        // 4. $.isArray(obj): 判断是否是数组
+        console.log('-- 4. --');
+        var arrTest = ['🐓', '你', '太', '美'];
+        console.log($.isArray(arrTest));
+        console.log($.isArray('只因你太美'));
+
+        // 5. $.isFunction(obj): 判断是否是函数
+        console.log('-- 5. --');
+        console.log($.isFunction($));
+        console.log($.isFunction('Hello'));
+
+
+        // （原生js，非jQuery）json字符串 与 js对象/数组 的相互转换
+        // JSON.parse(jsonString)  json字符串 -> js对象/数组
+        console.log('--- 原生js，非jQuery： ---');
+        console.log('-- json字符串 -> js对象/数组（原生js） --');
+        var jsonStr1 = '{"name": "全民制作人", "age": 14}';
+        console.log(JSON.parse(jsonStr1));
+        var jsonStr2 = '[{"num": "1", "name": "张三"}, {"num": "2", "name": "李四"}]';
+        console.log(JSON.parse(jsonStr2));
+
+        // JSON.stringify(jsObj/jsArr)  js对象/数组 -> json字符串
+        console.log('-- js对象/数组 -> json字符串（原生js） --');
+        var jsObj = {
+            "name": "全民制作人",
+            "age": 14
+        };
+        console.log(JSON.stringify(jsObj));
+        var jsArr = [
+            {"num": "1", "name": "张三"},
+            {"num": "2", "name": "李四"}
+        ];
+        console.log(JSON.stringify(jsArr));
+    </script>
+</body>
+</html>
