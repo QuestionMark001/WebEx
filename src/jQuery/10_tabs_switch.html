@@ -1,0 +1,108 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-26 18:12:50
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-26 20:26:53
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\10_tabs_switch.html
+ * @Description: Tab选项卡切换案例
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab选项卡切换案例</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    
+        #tab li {
+            float: left;
+            list-style: none;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            cursor: pointer;
+            text-align: center;
+        }
+    
+        #container {
+            position: relative;
+        }
+    
+        #content1,
+        #content2,
+        #content3 {
+            width: 300px;
+            height: 100px;
+            padding: 30px;
+            position: absolute;
+            top: 40px;
+            left: 0;
+        }
+    
+        #tab1,
+        #content1 {
+            background-color: #ffcc00;
+        }
+    
+        #tab2,
+        #content2 {
+            background-color: #ff00cc;
+        }
+    
+        #tab3,
+        #content3 {
+            background-color: #00ccff;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>多Tab点击切换</h2>
+    
+    <ul id="tab">
+        <li id="tab1" value="1">10元套餐</li>
+        <li id="tab2" value="2">30元套餐</li>
+        <li id="tab3" value="3">50元包月</li>
+    </ul>
+    
+    <div id="container">
+        <div id="content1">
+            10元套餐详情：<br />&nbsp;每月套餐内拨打100分钟，超出部分2毛/分钟
+        </div>
+        <div id="content2" style="display: none">
+            30元套餐详情：<br />&nbsp;每月套餐内拨打300分钟，超出部分1.5毛/分钟
+        </div>
+        <div id="content3" style="display: none">
+            50元包月详情：<br />&nbsp;每月无限量随心打
+        </div>
+    </div>
+    
+    <!-- TODO: jQuery实现多Tab点击切换 -->
+    <script>
+        var $tabs = $('#tab>li'); // 获取所有Tab
+        var $contents = $('#container>div'); // 获取Tab下的所有内容
+        var curIndex = 0; // 定义当前Tab与内容所对应的下标
+        // 点击任何 Tab 时，执行回调函数
+        $tabs.click(function () {
+            // console.log($tabs, $contents, $(this));
+            // console.log($(this).index());
+            var $clickIndex = $(this).index(); // 获取所点击的Tab下标值
+            // console.log($clickIndex);
+            $($contents[curIndex]).css('display', 'none'); // 将点击之前的内容隐藏
+            $($contents[$clickIndex]).css('display', ''); // 显示所点击Tab的对应内容
+
+            // 将 所点击的Tab下标值 重新赋值给 当前Tab与内容所对应的下标
+            curIndex = $clickIndex;
+        });
+    </script>
+</body>
+</html>
