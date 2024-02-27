@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-02-23 18:30:27
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-02-23 21:38:34
+ * @LastEditTime: 2024-02-27 18:51:29
  * @FilePath: \LocalProjects\WebEx\src\jQuery\7_simple_table.html
  * @Description: 简单表格案例（选择奇偶）
  * 
@@ -63,6 +63,7 @@
             color: #ffffff;
         }
     
+        /* 提前定义好需要变色的颜色，之后再结合jQuery的addClass方法即可 */
         .odd {
             background-color: #ccccff;
         }
@@ -123,7 +124,10 @@
         // 需求：除表头外，从第二行开始隔行变色
         // :odd 匹配所有下标为奇数的元素，从 0 开始计数
         // 因此第二行的下标为 1，是奇数下标；则用 :odd
-        $('#data>tbody>tr:odd').css('background', '#ccccff');
+        // $('#data>tbody>tr:odd').css('background', '#ccccff');
+
+        // jQuery addClass() 方法：
+        $('#data>tbody>tr:odd').addClass('odd');
     </script>
     <!--
     1) :odd 匹配所有索引值为奇数的元素，从 0 开始计数
