@@ -1,0 +1,129 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-26 20:48:23
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-27 18:42:02
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\11_jquery_attribute.html
+ * @Description: jQuery 属性的使用
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 属性的使用</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <div id="div1" class="box" title="one">class为box的div1</div>
+    <div id="div2" class="box" title="two">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br />
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>BBBBB</span></li>
+    </ul>
+    
+    <input type="text" name="username" value="全民制作人" />
+    <br>
+    <input type="checkbox">
+    <input type="checkbox">
+    <br>
+    <button>全选</button>
+    <button>全不选</button>
+
+    <script>
+        // TODO:
+        /*
+         *需求:
+         *1. 读取第一个div的title属性
+         *2. 给所有的div设置name属性(value为atguigu)
+         *3. 移除所有div的title属性
+         *4. 给所有的div设置class='guiguClass'
+         *5. 给所有的div 添加 class='abc'
+         *6. 移除所有div的guiguClass的class
+         *7. 得到最后一个li的标签体文本
+         *8. 设置第一个li的标签体为"<h1>mmmmmmmmm</h1>"
+         *9. 得到输入框中的value值
+         *10. 将输入框的值设置为atguigu
+         *11. 点击'全选'按钮实现全选
+         *12. 点击'全不选'按钮实现全不选
+         */
+
+        // 需求1：
+        console.log($('div:first').attr('title'));
+
+        // 需求2：
+        $('div').attr('name', 'atguigu');
+
+        // 需求3：
+        $('div').removeAttr('title');
+
+        // 需求4：
+        $('div').attr('class', 'guiguClass');
+
+        // 需求5：
+        $('div').addClass('abc');
+
+        // 需求6：
+        $('div').removeClass('guiguClass');
+
+        // 需求7（最后一个li内包了一个span标签）：
+        console.log($('li:last').html());
+
+        // 需求8：
+        $('li:first').html('<h1>mmmmmmmmm</h1>');
+
+        // 需求9：
+        console.log($(':text').val());
+
+        // 需求10：
+        $('input:first').val('atguigu');
+        console.log('输入框被修改后：' + $(':text').val());
+
+        // 需求11：
+        var $selectAll = $('button:contains("全选")');
+        $selectAll.click(function () {
+            $(':checkbox').prop('checked', true);
+        });
+        
+        // 需求12：
+        var $selectNone = $('button:contains("全不选")');
+        $selectNone.click(function () {
+            $(':checkbox').prop('checked', false);
+        });
+    </script>
+
+    <!--
+    1. 操作任意属性
+       attr() 返回/设置被选元素的属性值
+       removeAttr() 从每一个匹配的元素中删除一个属性
+       prop() 获取/设置在匹配的元素集中的第一个元素的属性值
+       （选中为 true，取消选中为 false）
+       例如：
+       选中页面上所有的复选框：$(':checkbox').prop('checked', true);
+       取消选中页面上所有的复选框：$(':checkbox').prop('checked', false);
+    2. 操作class属性
+       addClass() 为每个匹配的元素添加（非覆盖）指定的类名
+       removeClass() 从所有匹配的元素中删除全部（直接使用）/指定（括号内可指定）的类
+    3. 操作HTML代码/文本/值
+       html() 取得/设置第一个匹配元素的html内容
+       val() 获得/设置匹配元素的当前值（如：输入框中的值）
+    -->
+
+    <!--
+        注意：
+        attr()：操作属性值为 非布尔值 的属性
+        prop()：操作属性值为 布尔值 的属性（true 或 false）
+    -->
+</body>
+</html>
