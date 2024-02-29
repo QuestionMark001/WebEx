@@ -1,0 +1,50 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-02-27 20:48:45
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-02-29 17:58:14
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\12_jquery_css.html
+ * @Description: jQuery 操作CSS样式
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 操作CSS样式</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <p style="color: blue;">尚硅谷的后裔</p>
+    <p style="color: green;">太阳的后裔</p>
+
+    <script>
+        /*TODO:
+         *1. 得到第一个p标签的颜色
+         *2. 设置所有p标签的文本颜色为red
+         *3. 设置第2个p的字体颜色(#ff0011),背景(blue),宽(300px), 高(30px)
+         */
+
+        // 需求1：
+        console.log($('p:first').css('color'));
+
+        // 需求2：
+        // $('p').css('color', 'red');
+
+        // 需求3（设置多个CSS样式）：
+        // $('p:eq(1)').css({
+        //     'color': '#ff0011',
+        //     'background': 'blue',
+        //     'width': '300px',
+        //     'height': '30px'
+        // });
+    </script>
+
+    <!-- css()：读取/设置CSS样式 -->
+</body>
+</html>
