@@ -1,0 +1,103 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-01 17:32:19
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-01 20:24:31
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\14_jquery_scroll.html
+ * @Description: jQuery 操作页面滚动
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 操作页面滚动</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+<body style="height: 2000px;">
+    <div style="border:1px solid black;width:100px;height:150px;overflow:auto">
+        This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text.
+        his is some text.
+    </div>
+    <br/>
+    <h3>div</h3>
+    <button id="btn1">得到div元素的scrollTop</button>
+    <button id="btn2">设置div元素的scrollTop为100</button>
+    <h3>整个页面</h3>
+    <button id="btn3">得到整个页面的scrollTop</button>
+    <button id="btn4">设置整个页面的scrollTop为300</button>
+
+    <script>
+        /*TODO:
+         *需求:
+         *1. 1）得到 div 滚动条的坐标
+             2）让 div 的滚动条滚动到指定位置
+          2. 1）得到 页面 滚动条的坐标
+         *   2）让 页面 的滚动条滚动到指定位置
+         */
+
+        // 需求1：
+        var $div = $('div');
+        // 1. 1）
+        var $btn1 = $('#btn1');
+        $btn1.click(function () {
+            console.log($div.scrollTop());
+        });
+        // 1. 2）
+        var $btn2 = $('#btn2');
+        $btn2.click(function () {
+            $div.scrollTop(100);
+        });
+
+        // 需求2：
+        var $allPageChrome = $('body');   // Chrome
+        var $allPageIE = $('html');       // IE
+        // 2. 1）
+        var $btn3 = $('#btn3');
+        $btn3.click(function () {
+            console.log($allPageChrome.scrollTop()+$allPageIE.scrollTop());
+        });
+        // 2. 2）
+        var $btn4 = $('#btn4');
+        $btn4.click(function () {
+            $('body, html').scrollTop(300); // $('body, html') 兼容Chrome和IE
+        });
+    </script>
+
+    <!--
+    1. scrollTop();
+      读取/设置滚动条的Y坐标
+    2. $(document.body).scrollTop()+$(document.documentElement).scrollTop();
+      读取页面滚动条的Y坐标(兼容chrome和IE)
+    3. $('body,html').scrollTop(60);
+      滚动到指定位置(兼容chrome和IE)
+
+    注：
+      Chrome：只能通过取 body 元素来控制滚动条
+      IE：只能通过取 html 元素来控制滚动条
+    -->
+
+    <!--
+        注：jQuery 对 IE 不同版本的兼容性：
+        ● 1.x
+          ○ 兼容老版本 IE
+          ○ 文件更大
+        ● 2.x
+          ○ 部分 IE8 及以下支持
+          ○ 文件小，执行效率更高
+        ● 3.x
+          ○ 完全不再支持 IE8 及以下版本
+          ○ 提供了一些新的 API
+          ○ 提供不包含 ajax / 动画 API 的版本
+    -->
+</body>
+</html>
