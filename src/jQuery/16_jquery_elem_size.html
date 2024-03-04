@@ -1,0 +1,74 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-03 20:25:30
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-04 17:31:17
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\16_jquery_elem_size.html
+ * @Description: jQuery 读取元素的尺寸
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 读取元素的尺寸</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 150px;
+            background: rgb(0, 136, 255);
+            padding: 10px; /* 内边距 */
+            border: 10px #7850fb solid; /* 边框 */
+            margin: 10px; /* 外边距 */
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Please enter F12.</h3>
+    <h3>打开控制台后，选中div元素，进入“元素”-“样式”，即可分析出内边距（padding）、边框（border）、外边距（margin）。</h3>
+    
+    <div>div</div>
+    
+    <script>
+        var $div = $('div'); // 获取 div 元素
+
+        // 元素本身高度（height）
+        console.log($div.height()); // 150
+        // 元素本身宽度（width）
+        console.log($div.width()); // 100
+
+        // 元素本身高度+（上下两个）内边距（height+padding）
+        console.log($div.innerHeight()); // 170
+        // 元素本身宽度+（左右两个）内边距（width+padding）
+        console.log($div.innerWidth()); // 120
+
+        // 元素本身高度+（上下两个）内边距+（上下两个）边框+（上下两个）外边距（height+padding+border+margin）
+        console.log($div.outerHeight(true)); // 210
+        // 元素本身宽度+（左右两个）内边距+（左右两个）边框+（左右两个）外边距（width+padding+border+margin）
+        console.log($div.outerWidth(true)); // 160
+
+        // 元素本身高度+（上下两个）内边距+（上下两个）边框（height+padding+border）
+        console.log($div.outerHeight(false)); // 190
+        // 元素本身宽度+（左右两个）内边距+（左右两个）边框（width+padding+border）
+        console.log($div.outerWidth(false)); // 140
+    </script>
+
+    <!--
+    1. 内容尺寸
+      height(): height
+      width(): width
+    2. 内部尺寸
+      innerHeight(): height+padding
+      innerWidth(): width+padding
+    3. 外部尺寸（如果不写参数，则默认为 false）
+      outerHeight(false/true): height+padding+border  如果是true, 加上margin
+      outerWidth(false/true): width+padding+border 如果是true, 加上margin
+    -->
+</body>
+</html>
