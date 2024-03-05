@@ -1,0 +1,70 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-04 20:49:25
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-05 14:46:06
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\17_jquery_filter.html
+ * @Description: jQuery 对象的过滤
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 对象的过滤</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>AAAAA</li>
+        <li title="hello" class="box2">BBBBB</li>
+        <li class="box">CCCCC</li>
+        <li title="hello">DDDDDD</li>
+        <li title="two"><span>BBBBB</span></li>
+    </ul>
+    <li>eeeee</li>
+    <li>EEEEE</li>
+    <br>
+
+    <script>
+        /*TODO:
+         *需求（背景标红）:
+         *1. ul下li标签第一个
+         *2. ul下li标签的最后一个
+         *3. ul下li标签的第二个
+         *4. ul下li标签中title属性为hello的
+         *5. ul下li标签中title属性不为hello的
+         *6. ul下li标签中有span子标签的（还是求ul下的li）
+         */
+
+        var $li = $('ul>li');
+        // 需求1：
+        // $li.first().css('background', 'red');
+        // 需求2：
+        // $li.last().css('background', 'red');
+        // 需求3：
+        // $li.eq(1).css('background', 'red');
+        // 需求4：
+        // $li.filter('[title=hello]').css('background', 'red');
+        // 需求5：
+        // $li.filter('[title!=hello]').filter('[title]').css('background', 'red');
+        // 需求6：
+        // $li.has('span').css('background', 'red');
+    </script>
+
+    <!--
+    在jQuery对象中的元素对象数组中过滤出一部分元素来
+    1. first()
+    2. last()
+    3. eq(index|-index)
+    4. filter(selector)
+    5. not(selector)
+    6. has(selector)
+    -->
+</body>
+</html>
