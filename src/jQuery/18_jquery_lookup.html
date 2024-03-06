@@ -1,0 +1,83 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-06 10:36:44
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-06 11:32:04
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\18_jquery_lookup.html
+ * @Description: jQuery 对象的查找
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 对象的查找</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <div id="div1" class="box" title="one">class为box的div1</div>
+    <div id="div2" class="box">class为box的div2</div>
+    <div id="div3">div3</div>
+    <span class="box">class为box的span</span>
+    <br />
+    <div>
+        <ul>
+            <span>span文本1</span>
+            <li>AAAAA</li>
+            <li title="hello" class="box2">BBBBB</li>
+            <li class="box" id='cc'>CCCCC</li>
+            <li title="hello">DDDDDD</li>
+            <li title="two"><span>span文本2</span></li>
+            <span>span文本3</span>
+        </ul>
+        <span>span文本444</span><br>
+        <li>eeeee</li>
+        <li>EEEEE</li>
+        <br />
+    </div>
+
+    <script>
+        /*TODO:
+         *需求（背景标红）:
+         *1. ul标签的第2个span 子标签（指ul标签内 直接下一级 为span标签的第2个标签）
+         *2. ul标签的第2个span 后代标签（指ul标签内 所有span标签 的第2个标签）
+         *3. ul标签的父标签
+         *4. id为cc的li标签的前面的所有li标签
+         *5. id为cc的li标签的所有兄弟li标签
+        **/
+
+        var $ul = $('ul');      // ul标签
+        var $li_cc = $('#cc');  // id为cc的li标签
+
+        // 需求1：
+        // $ul.children('span:eq(1)').css('background', 'red');
+
+        // 需求2：
+        // $ul.find('span:eq(1)').css('background', 'red');
+
+        // 需求3：
+        // $ul.parent().css('background', 'red');
+
+        // 需求4：
+        // $li_cc.prevAll('li').css('background', 'red');
+
+        // 需求5：
+        // $li_cc.siblings('li').css('background', 'red');
+    </script>
+
+    <!--
+        在已经匹配出的元素集合中根据选择器查找孩子/父母/兄弟标签
+        1. children(): 子标签中找
+        2. find() : 后代标签中找
+        3. parent() : 父标签
+        4. prevAll() : 前面所有的兄弟标签
+        5. nextAll() : 后面所有的兄弟标签
+        6. siblings() : 前后所有的兄弟标签
+    -->
+</body>
+</html>
