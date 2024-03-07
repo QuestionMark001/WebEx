@@ -1,0 +1,100 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-06 18:07:01
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-07 18:24:48
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\19_hobby_selector.html
+ * @Description: 爱好选择器案例
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱好选择器案例</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+</head>
+
+<body>
+    <form>
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox" />全选/全不选
+
+        <br />
+        <input type="checkbox" name="items" value="足球" />足球
+        <input type="checkbox" name="items" value="篮球" />篮球
+        <input type="checkbox" name="items" value="羽毛球" />羽毛球
+        <input type="checkbox" name="items" value="乒乓球" />乒乓球
+        <br />
+        <input type="button" id="checkedAllBtn" value="全 选" />
+        <input type="button" id="checkedNoBtn" value="全不选" />
+        <input type="button" id="checkedRevBtn" value="反 选" />
+        <input type="button" id="sendBtn" value="提 交" />
+    </form>
+    <script>
+        /*TODO:
+         *功能说明:
+         *1. 点击'全选': 选中所有爱好
+         *2. 点击'全不选': 所有爱好都不勾选
+         *3. 点击'反选': 改变所有爱好的勾选状态
+         *4. 点击'提交': 提示所有勾选的爱好
+         *5. 点击'全选/全不选': 选中所有爱好, 或者全不选中
+         *6. 点击某个爱好时, 必要时更新'全选/全不选'的选中状态
+        **/
+
+        var $checkedAllBox = $('#checkedAllBox'); // 全选/全不选复选框
+        var $items = $(':checkbox[name=items]');  // 所有的爱好复选框
+
+        var $checkedAllBtn = $('#checkedAllBtn'); // 全选按钮
+        var $checkedNoBtn = $('#checkedNoBtn');   // 全不选按钮
+        var $checkedRevBtn = $('#checkedRevBtn'); // 反选按钮
+        var $sendBtn = $('#sendBtn');             // 提交按钮
+
+        // 功能1：
+        $checkedAllBtn.click(function () {
+            $items.prop('checked', true);
+            $checkedAllBox.prop('checked', true);
+        });
+
+        // 功能2：
+        $checkedNoBtn.click(function () {
+            $items.prop('checked', false);
+            $checkedAllBox.prop('checked', false);
+        });
+
+        // 功能3：
+        $checkedRevBtn.click(function () {
+            $items.each(function () {
+                this.checked = !this.checked;
+            });
+            $checkedAllBox.prop('checked', $items.not(':checked').length === 0);
+        });
+
+        // 功能4：
+        $sendBtn.click(function () {
+            var submitArr = [];
+            $items.filter(':checked').each(function () {
+                submitArr.push(this.value);
+            });
+            if(submitArr.length === 0) {
+                alert('您选择的爱好为空。' + submitArr);
+            } else {
+                alert('您选择的爱好为：\n' + submitArr);
+            }
+        });
+
+        // 功能5：
+        $checkedAllBox.click(function () {
+            $items.prop('checked', this.checked);
+        });
+        
+        // 功能6：
+        $items.click(function () {
+            $checkedAllBox.prop('checked', $items.not(':checked').length === 0);
+        });
+    </script>
+</body>
+</html>
