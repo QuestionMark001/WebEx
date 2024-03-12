@@ -1,0 +1,114 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-12 16:29:40
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-12 17:00:09
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\23_mouseenter_and_mouseover.html
+ * @Description: jQuery mouseenter与mouseover的区别（面试题）
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery mouseenter与mouseover的区别（面试题）</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        * {
+            margin: 0px;
+        }
+    
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 10px;
+            background: olive;
+        }
+    
+        .div2 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: red;
+        }
+    
+        .div3 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 230px;
+            background: olive;
+        }
+    
+        .div4 {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50px;
+            background: yellow;
+        }
+    
+        .divText {
+            position: absolute;
+            top: 330px;
+            left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="divText">
+        区分鼠标的事件
+    </div>
+
+    <div class="div1">
+        div1.....
+        <div class="div2">div2....</div>
+    </div>
+
+    <div class="div3">
+        div3.....
+        <div class="div4">div4....</div>
+    </div>
+
+    <script>
+        // mouseenter + mouseleave：
+        // 只对当前所绑定元素在移入/移出时起作用
+        $('.div1')
+        .mouseenter(function () {
+            console.log('mouseenter 移入');
+        })
+        .mouseleave(function () {
+            console.log('mouseleave 移出');
+        });
+
+        // mouseover + mouseout：
+        // 对 当前所绑定元素 及其 子元素 在移入/移出时都起作用
+        $('.div3')
+        .mouseover(function () {
+            console.log('mouseover 移入');
+        })
+        .mouseout(function () {
+            console.log('mouseout 移出');
+        });
+    </script>
+
+    <!--
+        区别mouseenter与mouseleave?
+            * mouseenter: 只在移入当前元素时才触发, 对应mouseleave
+            * mouseover: 在移入子元素时也会触发, 对应mouseout
+            * hover()使用的就是mouseenter()和mouseleave()
+        区别on('eventName', fun)与eventName(fun)
+            * on('eventName', fun): 通用, 但编码麻烦
+            * eventName(fun): 编码简单, 但有的事件没有对应的方法
+    -->
+</body>
+</html>
