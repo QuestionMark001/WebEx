@@ -1,0 +1,71 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-12 18:29:37
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-12 18:59:20
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\24_jquery_event_delegate.html
+ * @Description: [jQuery支持版本：1.x~2.x] jQuery 事件委托（委派/代理）
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[jQuery支持版本：1.x~2.x] jQuery 事件委托（委派/代理）</title>
+    <script src="./js/jquery-2.x/jquery-2.2.4.js"></script>
+</head>
+
+<body>
+    <h3>ul标签下的li标签被点击后会变红：</h3> <!-- TODO1 -->
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+        <li>4444</li>
+    </ul>
+
+    <li>22222</li>
+    <br>
+    <button id="btn1">在ul下添加新的li</button>
+    <button id="btn2">删除ul上的事件委托的监听器</button> <!-- TODO2 -->
+    <script>
+        $('#btn1').click(function () {
+            $('ul').append('<li>新增的li标签</li>');
+        });
+    </script>
+
+    <script>
+        // TODO1（添加事件委托）：
+        $('ul').delegate('li', 'click', function () {
+            // console.log(this); // 这里的this指的是在ul下被点击的li
+            $(this).css('background', 'red');
+        });
+
+        // TODO2（点击相应按钮后解除事件委托）：
+        $('#btn2').click(function () {
+            $('ul').undelegate('click');
+        });
+    </script>
+
+    <!--
+    1. 事件委托(委派/代理):
+      * 将多个子元素(li)的事件监听委托给父辈元素(ul)处理
+      * 监听回调是加在了父辈元素上
+      * 当操作任何一个子元素(li)时, 事件会冒泡到父辈元素(ul)
+      * 父辈元素不会直接处理事件, 而是根据event.target得到发生事件的子元素(li), 通过这个子元素调用事件回调函数
+    2. 事件委托的两方:
+      * 委托方: 业主  li
+      * 被委托方: 中介  ul
+    3. 使用事件委托的好处
+      * 添加新的子元素, 自动有事件响应处理
+      * 减少事件监听的数量: n==>1
+    4. jQuery的事件委托API
+      * 设置事件委托: $(parentSelector).delegate(childrenSelector, eventName, callback)
+      * 移除事件委托: $(parentSelector).undelegate(eventName)
+    -->
+</body>
+</html>
