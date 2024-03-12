@@ -1,0 +1,128 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-12 19:04:12
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-12 19:08:59
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\25_table_update_and_delete_v2.html
+ * @Description: [jQuery支持版本：1.x~2.x] 表格的添加与删除记录（v2）
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[jQuery支持版本：1.x~2.x] 表格的添加与删除记录（v2）</title>
+    <script src="./js/jquery-2.x/jquery-2.2.4.js"></script>
+    <link rel="stylesheet" href="./css/ex21.css">
+</head>
+
+<body>
+    <table id="employeeTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th>&nbsp;</th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=001">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Jerry</td>
+            <td>jerry@sohu.com</td>
+            <td>8000</td>
+            <td><a href="deleteEmp?id=002">Delete</a></td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>bob@tom.com</td>
+            <td>10000</td>
+            <td><a href="deleteEmp?id=003">Delete</a></td>
+        </tr>
+    </table>
+
+    <div id="formDiv">
+        <h4>添加新员工</h4>
+        <table>
+            <tr>
+                <td class="word">name:</td>
+                <td class="inp">
+                    <input type="text" name="empName" id="empName" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">email:</td>
+                <td class="inp">
+                    <input type="text" name="email" id="email" />
+                </td>
+            </tr>
+            <tr>
+                <td class="word">salary:</td>
+                <td class="inp">
+                    <input type="text" name="salary" id="salary" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button id="addEmpButton" value="abc">
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        /*TODO:
+         *1. 添加
+         *2. 删除
+        **/
+
+        // 添加功能
+        $('#addEmpButton').click(function () {
+            var $empName = $('#empName');
+            var $email = $('#email');
+            var $salary = $('#salary');
+            // 获取输入的新员工信息
+            var empNameText = $empName.val();
+            var emailText = $email.val();
+            var salaryText = $salary.val();
+
+            // 生成对应的 tr 标签
+            $('<tr></tr>')
+            .append('<td>'+empNameText+'</td>')
+            .append('<td>'+emailText+'</td>')
+            .append('<td>'+salaryText+'</td>')
+            .append('<td><a href="deleteEmp?id='+Date.now()+'">Delete</a></td>')
+            // 将以上信息添加到表格：
+            .appendTo('#employeeTable');
+
+            // 添加后清空输入框信息
+            $empName.val('');
+            $email.val('');
+            $salary.val('');
+        });
+
+        // 删除功能（网页上原先有的数据与新添加的数据都可被删除）
+        $('#employeeTable').delegate('a', 'click', deleteEmpFun);
+
+        // 表格信息删除函数
+        function deleteEmpFun() {
+            var $delTr = $(this).parent().parent();
+            var $delName = $delTr.children(':first').html();
+            if (confirm('确定删除关于'+$delName+'的信息吗？')) {
+                $delTr.remove();
+            }
+
+            return false; // 阻止点击“Delete”后的默认事件行为
+        }
+</script>
+</body>
+</html>
