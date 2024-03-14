@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:19:12
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-13 18:29:54
+ * @LastEditTime: 2024-03-14 20:12:23
  * @FilePath: \LocalProjects\WebEx\src\jQuery\26_carousel.html
  * @Description: jQuery 实现轮播图
  * 
@@ -125,14 +125,19 @@
 
 <body>
     <div id="container">
-        <div id="list" style="left: -600px;">
-            <img src="./img/ex26_5.jpg" alt="5" />
-            <img src="./img/ex26_1.jpg" alt="1" />
+        <div id="list" style="left: -600px;"> <!-- left: -600px 网页加载后将默认展示135行的 ex26_1.jpg -->
+            <!--
+                真实的图片数量总共就 5 张，但为了实现循坏翻页效果，
+                特意将最后一张图片复制一份到第一张图片前，
+                然后再将第一张图片复制一份到最后一张图片后。
+            -->
+            <img src="./img/ex26_5.jpg" alt="5" /> <!-- 用于实现循坏翻页效果 -->
+            <img src="./img/ex26_1.jpg" alt="1" /> <!-- 默认显示 -->
             <img src="./img/ex26_2.jpg" alt="2" />
             <img src="./img/ex26_3.jpg" alt="3" />
             <img src="./img/ex26_4.jpg" alt="4" />
             <img src="./img/ex26_5.jpg" alt="5" />
-            <img src="./img/ex26_1.jpg" alt="1" />
+            <img src="./img/ex26_1.jpg" alt="1" /> <!-- 用于实现循坏翻页效果 -->
         </div>
         <div id="pointsDiv">
             <span index="1" class="on"></span>
@@ -144,6 +149,11 @@
         <a href="javascript:;" id="prev" class="arrow">&lt;</a>
         <a href="javascript:;" id="next" class="arrow">&gt;</a>
     </div>
+
+    <br />
+    <hr />
+
+    <img src="./img/26_carousel.drawio.png" alt="循环翻页原理图">
 
     <script src="./js/ex26_carousel.js"></script> <!-- 轮播图js实现 -->
 </body>
