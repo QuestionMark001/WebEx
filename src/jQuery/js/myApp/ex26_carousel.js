@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-15 18:18:25
+ * @LastEditTime: 2024-03-15 20:22:23
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -43,6 +43,25 @@ $(function () {
         nextPage(true);
     });
 
+    // 3. 每隔3s自动滑动到下一页
+    var intervalIdAutoPlay = setInterval(function () {
+        nextPage(true);
+    }, 3000);
+
+    // 4. 当鼠标进入图片区域时, 自动切换停止, 当鼠标离开后,又开始自动切换
+    $container.hover(
+        // 鼠标移入
+        function () {
+            clearInterval(intervalIdAutoPlay);
+        },
+        // 鼠标移出
+        function () {
+            var intervalIdAutoPlay = setInterval(function () {
+                nextPage(true);
+            }, 3000);
+        }
+    );
+
     /**
      * 用于平滑切换上/下一页的函数
      * @param {Boolean} next false:上一页, true:下一页
@@ -64,8 +83,22 @@ $(function () {
             if (curLeft === targetOffset) {
                 clearInterval(intervalId); // 切换完毕后，清除定时器
 
-                // 2. 切换完毕并清除定时器后，判断循环翻页
+                // 2. 无限循环切换，切换完毕并清除定时器后，判断循环翻页
                 // 注：循坏翻页原理图 WebEx/src/jQuery/img/26_carousel.drawio.png
+                /*
+                 * FIXME: Bug（未修复）
+                 * 在2K分辨率屏幕下最大化浏览器浏览网页时循环翻页失效
+                 * 问题复现：
+                 * OS: Windows 11
+                 * Browser: Google Chrome 112
+                 * Screen: 2560*1440
+                 * Windows HIDPI: 150%
+                 * 复现步骤：打开网页后立即点击窗口最大化按钮，
+                 *         然后再触发循环翻页，就会使该功能失效。
+                 * 临时解决方法：不使用最大化浏览器窗口浏览网页，
+                 *             适当缩小浏览器窗口，重启Live Server开关，
+                 *             然后强刷多次网页后即可解决。
+                 */
                 if (curLeft === -(imgCount + 1) * IMG_WITH) {
                     curLeft = -IMG_WITH;
                 } else if (curLeft === 0) {
