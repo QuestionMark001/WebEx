@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-15 20:22:23
+ * @LastEditTime: 2024-03-15 21:17:48
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -28,6 +28,7 @@ $(function () {
     var $prev = $('#prev');
     var $next = $('#next');
     var imgCount = $points.length;       // 通过圆点数量获取原本真实的图片数量
+    var index = 0;                       // 设置初始圆点坐标
     var offset = 0;                      // 设置初始总偏移量
     const IMG_WITH = 600;                // 照片的宽度
     const TIME = 500;                    // 用于切换图片的持续总时间
@@ -108,5 +109,37 @@ $(function () {
 
             $list.css('left', curLeft); // 应用 CSS 样式
         }, ITEM_TIME);
+
+        // 5. 切换页面时, 圆点也同步更新
+        // 更新圆点
+        updatePoints(next);
+    }
+
+    /**
+     * 用于更新圆点信息的函数
+     * @param {Boolean} next false:上一页, true:下一页
+     */
+    function updatePoints(next) {
+        var targetIndex = 0; // 用于记录目标圆点的下标
+        // 计算目标圆点下标
+        if (next) {
+            // 向下翻页
+            targetIndex = index + 1; // [0, ..., imgCount-1]
+            if (targetIndex === imgCount) { // 适配循环翻页（情况一）
+                targetIndex = 0;
+            }
+        } else {
+            // 向上翻页
+            targetIndex = index - 1; // [0, ..., imgCount-1]
+            if (targetIndex === -1) { // 适配循环翻页（情况二）
+                targetIndex = imgCount - 1;
+            }
+        }
+        // 移除更新前圆点的CSS样式
+        $points.eq(index).removeClass('on');
+        // 添加更新后目标圆点的CSS样式
+        $points.eq(targetIndex).addClass('on');
+        // 更新圆点坐标信息
+        index = targetIndex;
     }
 });
