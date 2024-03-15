@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-15 17:54:33
+ * @LastEditTime: 2024-03-15 18:18:25
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -55,31 +55,25 @@ $(function () {
         // 计算出目标偏移量
         var targetOffset = curLeft + offset;
         // 计算出间隔偏移量
-        itemOffset = offset / (TIME / ITEM_TIME);
+        var itemOffset = offset / (TIME / ITEM_TIME);
 
         // 设置循环定时器，实现平滑切换
-        var intervalId = setInterval(() => {
+        var intervalId = setInterval(function () {
             // 每次循环时计算出新的curLeft
             curLeft += itemOffset;
             if (curLeft === targetOffset) {
                 clearInterval(intervalId); // 切换完毕后，清除定时器
 
-                // 2. 切换完毕并清除定时器后，判断循环翻页（需要处理浮点数运算精度）
-                const EPSILON = 0.001; // 定义一个极小值（用于处理浮点数运算精度）
-                if (Math.abs(curLeft - (-(imgCount + 1) * IMG_WITH)) < EPSILON) {
+                // 2. 切换完毕并清除定时器后，判断循环翻页
+                // 注：循坏翻页原理图 WebEx/src/jQuery/img/26_carousel.drawio.png
+                if (curLeft === -(imgCount + 1) * IMG_WITH) {
                     curLeft = -IMG_WITH;
-                } else if (Math.abs(curLeft - 0) < EPSILON) {
+                } else if (curLeft === 0) {
                     curLeft = -imgCount * IMG_WITH;
                 }
-                // TODO2原始实现代码（无法处理浮点数运算精度问题，作废）
-                // if (curLeft === -(imgCount + 1) * IMG_WITH) {
-                //     curLeft = -IMG_WITH;
-                // } else if (curLeft === 0) {
-                //     curLeft = -imgCount * IMG_WITH;
-                // }
             }
 
-            $list.css('left', curLeft);
+            $list.css('left', curLeft); // 应用 CSS 样式
         }, ITEM_TIME);
     }
 });
