@@ -2,8 +2,8 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-15 17:34:48
- * @FilePath: \LocalProjects\WebEx\src\jQuery\js\ex26_carousel.js
+ * @LastEditTime: 2024-03-15 17:54:33
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
  * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
@@ -32,7 +32,6 @@ $(function () {
     const IMG_WITH = 600;                // 照片的宽度
     const TIME = 500;                    // 用于切换图片的持续总时间
     const ITEM_TIME = 10;                // 循环定时器的单位时间
-    const EPSILON = 0.0001;              // 定义一个极小值（用于处理浮点数运算精度）
     
     // 1. 点击向右(左)的图标, 平滑切换到下(上)一页
     // 上一页（加上一个照片的宽度）
@@ -66,6 +65,7 @@ $(function () {
                 clearInterval(intervalId); // 切换完毕后，清除定时器
 
                 // 2. 切换完毕并清除定时器后，判断循环翻页（需要处理浮点数运算精度）
+                const EPSILON = 0.001; // 定义一个极小值（用于处理浮点数运算精度）
                 if (Math.abs(curLeft - (-(imgCount + 1) * IMG_WITH)) < EPSILON) {
                     curLeft = -IMG_WITH;
                 } else if (Math.abs(curLeft - 0) < EPSILON) {
