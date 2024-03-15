@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-13 22:11:56
+ * @LastEditTime: 2024-03-15 17:34:48
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -27,10 +27,12 @@ $(function () {
     var $points = $('#pointsDiv>span');
     var $prev = $('#prev');
     var $next = $('#next');
+    var imgCount = $points.length;       // 通过圆点数量获取原本真实的图片数量
     var offset = 0;                      // 设置初始总偏移量
     const IMG_WITH = 600;                // 照片的宽度
     const TIME = 500;                    // 用于切换图片的持续总时间
     const ITEM_TIME = 10;                // 循环定时器的单位时间
+    const EPSILON = 0.0001;              // 定义一个极小值（用于处理浮点数运算精度）
     
     // 1. 点击向右(左)的图标, 平滑切换到下(上)一页
     // 上一页（加上一个照片的宽度）
@@ -60,9 +62,21 @@ $(function () {
         var intervalId = setInterval(() => {
             // 每次循环时计算出新的curLeft
             curLeft += itemOffset;
-
             if (curLeft === targetOffset) {
                 clearInterval(intervalId); // 切换完毕后，清除定时器
+
+                // 2. 切换完毕并清除定时器后，判断循环翻页（需要处理浮点数运算精度）
+                if (Math.abs(curLeft - (-(imgCount + 1) * IMG_WITH)) < EPSILON) {
+                    curLeft = -IMG_WITH;
+                } else if (Math.abs(curLeft - 0) < EPSILON) {
+                    curLeft = -imgCount * IMG_WITH;
+                }
+                // TODO2原始实现代码（无法处理浮点数运算精度问题，作废）
+                // if (curLeft === -(imgCount + 1) * IMG_WITH) {
+                //     curLeft = -IMG_WITH;
+                // } else if (curLeft === 0) {
+                //     curLeft = -imgCount * IMG_WITH;
+                // }
             }
 
             $list.css('left', curLeft);
