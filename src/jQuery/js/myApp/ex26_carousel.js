@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-15 21:17:48
+ * @LastEditTime: 2024-03-16 20:34:53
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -63,15 +63,31 @@ $(function () {
         }
     );
 
+    // 6. 点击圆点图标切换到对应的页
+    $points.click(function () {
+        // 获取目标下标的值
+        var targetIndex = $(this).index();
+        // 如果点击的圆点对应页面不是当前页面，则继续
+        if (targetIndex != index) {
+            nextPage(targetIndex);
+        }
+    });
+
     /**
-     * 用于平滑切换上/下一页的函数
-     * @param {Boolean} next false:上一页, true:下一页
+     * 用于平滑切换上/下一页/指定下标页的函数
+     * @param {(Boolean|Number)} next - false:上一页, true:下一页；Number: 下标值
      */
     function nextPage(next) {
         // 获取当前图片在父元素中的left值
         var curLeft = $list.position().left;
-        // 计算出总偏移量
-        offset = next ? -IMG_WITH : IMG_WITH;
+        // 判断 next 参数的数据类型
+        if (typeof next === 'boolean') {
+            // 计算出上/下一页的总偏移量
+            offset = next ? -IMG_WITH : IMG_WITH;
+        } else {
+            // 计算出指定下标页的总偏移量
+            offset = -(next - index) * IMG_WITH;
+        }
         // 计算出目标偏移量
         var targetOffset = curLeft + offset;
         // 计算出间隔偏移量
@@ -117,23 +133,28 @@ $(function () {
 
     /**
      * 用于更新圆点信息的函数
-     * @param {Boolean} next false:上一页, true:下一页
+     * @param {(Boolean|Number)} next false:上一页, true:下一页；Number: 下标值
      */
     function updatePoints(next) {
         var targetIndex = 0; // 用于记录目标圆点的下标
-        // 计算目标圆点下标
-        if (next) {
-            // 向下翻页
-            targetIndex = index + 1; // [0, ..., imgCount-1]
-            if (targetIndex === imgCount) { // 适配循环翻页（情况一）
-                targetIndex = 0;
+        if (typeof next === 'boolean') {
+            // 计算目标圆点下标（上/下翻页）
+            if (next) {
+                // 向下翻页
+                targetIndex = index + 1; // [0, ..., imgCount-1]
+                if (targetIndex === imgCount) { // 适配循环翻页（情况一）
+                    targetIndex = 0;
+                }
+            } else {
+                // 向上翻页
+                targetIndex = index - 1; // [0, ..., imgCount-1]
+                if (targetIndex === -1) { // 适配循环翻页（情况二）
+                    targetIndex = imgCount - 1;
+                }
             }
         } else {
-            // 向上翻页
-            targetIndex = index - 1; // [0, ..., imgCount-1]
-            if (targetIndex === -1) { // 适配循环翻页（情况二）
-                targetIndex = imgCount - 1;
-            }
+            // next为数值时直接赋值（指定下标页）
+            targetIndex = next;
         }
         // 移除更新前圆点的CSS样式
         $points.eq(index).removeClass('on');
