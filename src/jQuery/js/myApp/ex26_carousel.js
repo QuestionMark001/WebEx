@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-13 18:30:08
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-16 20:34:53
+ * @LastEditTime: 2024-03-16 21:13:50
  * @FilePath: \LocalProjects\WebEx\src\jQuery\js\myApp\ex26_carousel.js
  * @Description: jQuery 实现轮播图
  * 
@@ -13,12 +13,10 @@
  * 功能说明:
  * 1. 点击向右(左)的图标, 平滑切换到下(上)一页
  * 2. 无限循环切换: 第一页的上一页为最后页, 最后一页的下一页是第一页
- * 3. 每隔3s自动滑动到下一页
+ * 3. 每隔1s自动滑动到下一页
  * 4. 当鼠标进入图片区域时, 自动切换停止, 当鼠标离开后,又开始自动切换
  * 5. 切换页面时, 下面的圆点也同步更新
  * 6. 点击圆点图标切换到对应的页
- * 
- * bug: 快速点击时, 翻页不正常
  */
 
 $(function () {
@@ -30,9 +28,10 @@ $(function () {
     var imgCount = $points.length;       // 通过圆点数量获取原本真实的图片数量
     var index = 0;                       // 设置初始圆点坐标
     var offset = 0;                      // 设置初始总偏移量
+    var moving = false;                  // 设置初始 用户手动快速翻页状态（默认没翻）
     const IMG_WITH = 600;                // 照片的宽度
     const TIME = 500;                    // 用于切换图片的持续总时间
-    const ITEM_TIME = 10;                // 循环定时器的单位时间
+    const ITEM_TIME = 10;                // nextPage(next)内循环定时器的单位时间
     
     // 1. 点击向右(左)的图标, 平滑切换到下(上)一页
     // 上一页（加上一个照片的宽度）
@@ -44,24 +43,20 @@ $(function () {
         nextPage(true);
     });
 
-    // 3. 每隔3s自动滑动到下一页
-    var intervalIdAutoPlay = setInterval(function () {
+    // 3. 每隔1s自动滑动到下一页
+    var intervalId = setInterval(function () {
         nextPage(true);
-    }, 3000);
+    }, 1000)
 
     // 4. 当鼠标进入图片区域时, 自动切换停止, 当鼠标离开后,又开始自动切换
-    $container.hover(
-        // 鼠标移入
-        function () {
-            clearInterval(intervalIdAutoPlay);
-        },
-        // 鼠标移出
-        function () {
-            var intervalIdAutoPlay = setInterval(function () {
-                nextPage(true);
-            }, 3000);
-        }
-    );
+    $container.hover(function () {
+        // 清除定时器
+        clearInterval(intervalId)
+    }, function () {
+        intervalId = setInterval(function () {
+            nextPage(true);
+        }, 1000)
+    });
 
     // 6. 点击圆点图标切换到对应的页
     $points.click(function () {
@@ -78,6 +73,12 @@ $(function () {
      * @param {(Boolean|Number)} next - false:上一页, true:下一页；Number: 下标值
      */
     function nextPage(next) {
+        // 如果用户正在手动快速翻页，则直接结束
+        if (moving) { // 已经正在翻页中
+            return;
+        }
+        moving = true; // 标识正在翻页
+
         // 获取当前图片在父元素中的left值
         var curLeft = $list.position().left;
         // 判断 next 参数的数据类型
@@ -99,6 +100,8 @@ $(function () {
             curLeft += itemOffset;
             if (curLeft === targetOffset) {
                 clearInterval(intervalId); // 切换完毕后，清除定时器
+                
+                moving = false; // 标识翻页结束
 
                 // 2. 无限循环切换，切换完毕并清除定时器后，判断循环翻页
                 // 注：循坏翻页原理图 WebEx/src/jQuery/img/26_carousel.drawio.png
