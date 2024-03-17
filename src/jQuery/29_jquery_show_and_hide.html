@@ -1,0 +1,82 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-17 20:51:29
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-17 21:12:55
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\29_jquery_show_and_hide.html
+ * @Description: jquery 显示/隐藏效果
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery 显示/隐藏效果</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        * {
+            margin: 0px;
+        }
+    
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 10px;
+            background: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">瞬间显示</button>
+    <button id="btn2">慢慢显示</button>
+    <button id="btn3">慢慢隐藏</button>
+    <button id="btn4">显示隐藏切换</button>
+
+    <div class="div1"></div>
+
+    <script>
+        /* TODO:
+         * 需求:
+         * 1. 点击btn1, 立即显示
+         * 2. 点击btn2, 慢慢显示
+         * 3. 点击btn3, 慢慢隐藏
+         * 4. 点击btn4, 切换显示/隐藏
+         */
+
+        // 1. 点击btn1, 立即显示
+        $('#btn1').click(function () {
+            $('.div1').show();
+        });
+
+        // 2. 点击btn2, 慢慢显示
+        $('#btn2').click(function () {
+            $('.div1').show('slow');
+        });
+
+        // 3. 点击btn3, 慢慢隐藏
+        $('#btn3').click(function () {
+            $('.div1').hide('slow');
+        });
+
+        // 4. 点击btn4, 切换显示/隐藏
+        $('#btn4').click(function () {
+            $('.div1').toggle('slow');
+        });
+    </script>
+
+    <!--
+        显示隐藏，默认没有动画, 动画(opacity/height/width)
+        1. show(): (不)带动画的显示
+        2. hide(): (不)带动画的隐藏
+        3. toggle(): (不)带动画的切换显示/隐藏
+    -->
+</body>
+</html>
