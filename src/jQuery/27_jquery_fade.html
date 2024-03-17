@@ -1,0 +1,81 @@
+<!--
+ * @Author: QuestionMark001
+ * @Date: 2024-03-17 19:23:11
+ * @LastEditors: QuestionMark001
+ * @LastEditTime: 2024-03-17 20:24:50
+ * @FilePath: \LocalProjects\WebEx\src\jQuery\27_jquery_fade.html
+ * @Description: jQuery 淡入/淡出效果
+ * 
+ * Copyright (c) 2024 by QuestionMark001, All Rights Reserved. 
+-->
+
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 淡入/淡出效果</title>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <style>
+        * {
+            margin: 0px;
+        }
+    
+        .div1 {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            top: 50px;
+            left: 10px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn1">慢慢淡出</button>
+    <button id="btn2">慢慢淡入</button>
+    <button id="btn3">淡出/淡入切换</button>
+
+    <div class="div1"></div>
+
+    <script>
+        /* TODO:
+         * 需求：
+         * 1. 点击btn1, 慢慢淡出
+         *   - 无参
+         *   - 有参
+         *     - 字符串参数：'slow', 'normal', 'fast'
+         *     - 数字参数（如：1000）
+         * 2. 点击btn2, 慢慢淡入
+         * 3. 点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
+         */
+
+        // 1. 点击btn1, 慢慢淡出
+        $('#btn1').click(function () {
+            // $('.div1').fadeOut();
+            $('.div1').fadeOut('slow');
+        });
+
+        // 2. 点击btn2, 慢慢淡入
+        $('#btn2').click(function () {
+            $('.div1').fadeIn('slow');
+        });
+
+        // 3. 点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
+        $('#btn3').click('slow', function () {
+            $('.div1').fadeToggle(function () {
+                alert("动画结束了");
+            });
+        });
+    </script>
+
+    <!--
+        淡入淡出: 不断改变元素的透明度(opacity)来实现的
+        1. fadeIn(): 带动画的显示
+        2. fadeOut(): 带动画隐藏
+        3. fadeToggle(): 带动画切换显示/隐藏
+    -->
+</body>
+</html>
