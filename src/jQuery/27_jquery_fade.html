@@ -2,7 +2,7 @@
  * @Author: QuestionMark001
  * @Date: 2024-03-17 19:23:11
  * @LastEditors: QuestionMark001
- * @LastEditTime: 2024-03-17 20:24:50
+ * @LastEditTime: 2024-03-17 21:07:07
  * @FilePath: \LocalProjects\WebEx\src\jQuery\27_jquery_fade.html
  * @Description: jQuery 淡入/淡出效果
  * 
@@ -64,8 +64,8 @@
         });
 
         // 3. 点击btn3, 淡出/淡入切换，动画结束时提示“动画结束了”
-        $('#btn3').click('slow', function () {
-            $('.div1').fadeToggle(function () {
+        $('#btn3').click(function () {
+            $('.div1').fadeToggle('slow', function () {
                 alert("动画结束了");
             });
         });
